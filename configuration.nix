@@ -123,22 +123,23 @@
     description = "Willem Van Zwol";
     extraGroups = [ "networkmanager" "wheel" ];
     packages = with pkgs; [
-        thunderbird
-	neofetch
-	spotify
-	vlc
-	btop
-	alacritty
-	vim
-	neovim
-	git
-	discord
-	obs-studio
-	obsidian
-	#brave
-	#gimp
-	#davinci-resolve
-	#steam
+      thunderbird
+      neofetch
+      spotify
+      vlc
+      btop
+      alacritty
+      vim
+      neovim
+      git
+      discord
+      obs-studio
+      obsidian
+      vscode
+      brave
+      #gimp
+      #davinci-resolve
+      steam
     ];
   };
 
