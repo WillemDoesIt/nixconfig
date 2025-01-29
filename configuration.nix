@@ -117,6 +117,15 @@
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
 
+  programs.steam.enable = true;
+  programs.steam.gamescopeSession.enable = true;
+
+  environment.systemPackages = with pkgs; [
+    mangohud
+  ];
+
+  programs.gamemode.enable = true;
+
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.willemvz = {
     isNormalUser = true;
