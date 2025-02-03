@@ -1,11 +1,15 @@
 # Edit this configuration file to define what should be installed on
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}: {
+  # NVIDIA STUFF https://nixos.wiki/wiki/Nvidia
 
-{ config, lib, pkgs, ... }:
-
-{  
-# Enable OpenGL
+  # Enable OpenGL
   hardware.graphics = {
     enable = true;
   };
@@ -14,41 +18,24 @@
   services.xserver.videoDrivers = ["nvidia"];
 
   hardware.nvidia = {
-
-    # Modesetting is required.
     modesetting.enable = true;
 
-    # Nvidia power management. Experimental, and can cause sleep/suspend to fail.
-    # Enable this if you have graphical corruption issues or application crashes after waking
-    # up from sleep. This fixes it by saving the entire VRAM memory to /tmp/ instead 
-    # of just the bare essentials.
+    # Buggy Experimental Settings
     powerManagement.enable = false;
-
-    # Fine-grained power management. Turns off GPU when not in use.
-    # Experimental and only works on modern Nvidia GPUs (Turing or newer).
     powerManagement.finegrained = false;
-
-    # Use the NVidia open source kernel module (not to be confused with the
-    # independent third-party "nouveau" open source driver).
-    # Support is limited to the Turing and later architectures. Full list of 
-    # supported GPUs is at: 
-    # https://github.com/NVIDIA/open-gpu-kernel-modules#compatible-gpus 
-    # Only available from driver 515.43.04+
-    # Currently alpha-quality/buggy, so false is currently the recommended setting.
     open = false;
 
-    # Enable the Nvidia settings menu,
-	# accessible via `nvidia-settings`.
+    # activate menu app
     nvidiaSettings = true;
 
     # Optionally, you may need to select the appropriate driver version for your specific GPU.
     package = config.boot.kernelPackages.nvidiaPackages.stable;
   };
 
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-    ];
+  imports = [
+    # Include the results of the hardware scan.
+    ./hardware-configuration.nix
+  ];
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
@@ -64,10 +51,7 @@
   # Enable networking
   networking.networkmanager.enable = true;
 
-  # Set your time zone.
   time.timeZone = "America/Los_Angeles";
-
-  # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
 
   i18n.extraLocaleSettings = {
@@ -118,20 +102,29 @@
   # services.xserver.libinput.enable = true;
 
   programs.steam.enable = true;
-  programs.steam.gamescopeSession.enable = true;
 
-  environment.systemPackages = with pkgs; [
-    mangohud
-  ];
-
-  programs.gamemode.enable = true;
+  programs.nix-ld.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.willemvz = {
     isNormalUser = true;
     description = "Willem Van Zwol";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = ["networkmanager" "wheel"];
     packages = with pkgs; [
+      # MINECRAFT STUFF
+      (prismlauncher.override {
+        # Add binary required by some mod
+        additionalPrograms = [ffmpeg];
+
+        # Change Java runtimes available to Prism Launcher
+        jdks = [
+          graalvm-ce
+          zulu8
+          zulu17
+          zulu
+        ];
+      })
+
       thunderbird
       neofetch
       spotify
@@ -146,14 +139,41 @@
       obsidian
       vscode
       brave
-      #gimp
-      #davinci-resolve
+      gimp
+      davinci-resolve
       steam
+      libreoffice
+      beeper
+      ticktick
+      alejandra
+
+      #Microsoft
+      p3x-onenote
+      evolution
+      onedrive
+
+      #rust stuff
+      cargo
+
+      #cpp stuff
+      gcc
+      gnumake
+      cmake
+      clang
+      lldb
+
+      #nvchad stuff
+      ripgrep
+      fd
+      lazygit
+
+      jetbrains-mono
     ];
   };
 
-  # Install firefox.
-  programs.firefox.enable = true;
+  fonts.packages = with pkgs; [
+    (nerdfonts.override {fonts = ["JetBrainsMono"];})
+  ];
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
@@ -161,8 +181,8 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-  #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-  #  wget
+    #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+    #  wget
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -191,5 +211,4 @@
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "24.11"; # Did you read the comment?
-
 }
