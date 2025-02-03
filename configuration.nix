@@ -146,6 +146,7 @@
       beeper
       ticktick
       alejandra
+      mpv
 
       #Microsoft
       p3x-onenote
