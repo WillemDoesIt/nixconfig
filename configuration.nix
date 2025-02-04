@@ -35,6 +35,7 @@
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
+    ./packages.nix
   ];
 
   # Bootloader.
@@ -110,66 +111,6 @@
     isNormalUser = true;
     description = "Willem Van Zwol";
     extraGroups = ["networkmanager" "wheel"];
-    packages = with pkgs; [
-      # MINECRAFT STUFF
-      (prismlauncher.override {
-        # Add binary required by some mod
-        additionalPrograms = [ffmpeg];
-
-        # Change Java runtimes available to Prism Launcher
-        jdks = [
-          graalvm-ce
-          zulu8
-          zulu17
-          zulu
-        ];
-      })
-
-      thunderbird
-      neofetch
-      spotify
-      vlc
-      btop
-      alacritty
-      vim
-      neovim
-      git
-      discord
-      obs-studio
-      obsidian
-      vscode
-      brave
-      gimp
-      davinci-resolve
-      steam
-      libreoffice
-      beeper
-      ticktick
-      alejandra
-      mpv
-
-      #Microsoft
-      p3x-onenote
-      evolution
-      onedrive
-
-      #rust stuff
-      cargo
-
-      #cpp stuff
-      gcc
-      gnumake
-      cmake
-      clang
-      lldb
-
-      #nvchad stuff
-      ripgrep
-      fd
-      lazygit
-
-      jetbrains-mono
-    ];
   };
 
   fonts.packages = with pkgs; [
