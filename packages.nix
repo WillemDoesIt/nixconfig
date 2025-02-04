@@ -35,15 +35,16 @@
         beeper
         ticktick
         alejandra
-        mpv #not sure if I wanna keep this
+        mpv # not sure if I wanna keep this
         cowsay
         audacity
         ollama
         man
-        tldr
-        transmission_4-qt
+        tldr 
+        transmission_4-qt # torrent
         krita
-        ranger
+        ranger # terminal file manager
+        reaper # audio like thing
 
         # microsoft
         p3x-onenote
