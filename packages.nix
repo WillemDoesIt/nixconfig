@@ -43,7 +43,7 @@
         tldr
         transmission_4-qt
         krita
-        nnn
+        ranger
 
         # microsoft
         p3x-onenote
