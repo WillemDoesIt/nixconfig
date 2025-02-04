@@ -42,6 +42,8 @@
         man
         tldr
         transmission_4-qt
+        krita
+        nnn
 
         # microsoft
         p3x-onenote
