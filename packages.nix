@@ -45,8 +45,13 @@
         krita
         ranger # terminal file manager
         reaper # audio like thing
-        kitty  # necessary for hyprland
+        
+        # hyprland stuff
+        kitty 
         waybar
+        dunst
+        libnotify
+
 
         # microsoft
         p3x-onenote
