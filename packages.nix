@@ -45,7 +45,7 @@
         krita
         ranger # terminal file manager
         reaper # audio like thing
-        xfce.mousepad   # notepad like
+        gedit   # notepad like
 
         # hyprland stuff
         kitty 
