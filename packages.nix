@@ -51,7 +51,7 @@
         waybar
         dunst
         libnotify
-
+        rofi
 
         # microsoft
         p3x-onenote
