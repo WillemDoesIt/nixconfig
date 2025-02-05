@@ -45,7 +45,7 @@
         krita
         ranger # terminal file manager
         reaper # audio like thing
-        ibsForQt5.kate   # notepad like
+        mousepad   # notepad like
 
         # hyprland stuff
         kitty 
