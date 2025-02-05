@@ -46,7 +46,7 @@
         ranger # terminal file manager
         thunar
         reaper # audio like thing
-        xfce.mousepad   # notepad like
+        gedit   # notepad like
 
         # hyprland stuff
         kitty 
