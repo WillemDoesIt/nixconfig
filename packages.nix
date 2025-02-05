@@ -44,8 +44,9 @@
         transmission_4-qt # torrent
         krita
         ranger # terminal file manager
+        thunar
         reaper # audio like thing
-        gedit   # notepad like
+        xfce.mousepad   # notepad like
 
         # hyprland stuff
         kitty 
