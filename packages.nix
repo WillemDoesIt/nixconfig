@@ -52,6 +52,7 @@
         # flameshot # screenshot
         hyprshot
         swww # wallpaper daemon
+        
 
         # hyprland stuff
         kitty 
