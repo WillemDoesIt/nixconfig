@@ -15,7 +15,6 @@
         })
 
         thunderbird
-        neofetch
         spotify
         vlc
         btop
@@ -37,7 +36,13 @@
         ticktick
         alejandra
         mpv # not sure if I wanna keep this
+        
+        # uselesss terminall stuffs
+        neofetch
+        pipes
         cowsay
+
+
         audacity
         ollama
         man
