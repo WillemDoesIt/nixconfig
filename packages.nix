@@ -52,7 +52,9 @@
         # flameshot # screenshot
         hyprshot
         swww # wallpaper daemon
-        
+
+        # this is how imma setup middle click autoscroll
+        imwheel        
 
         # hyprland stuff
         kitty 

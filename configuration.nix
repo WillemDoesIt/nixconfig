@@ -91,8 +91,6 @@
     #media-session.enable = true;
   };
 
-  environment.systemPackages = with pkgs; [imwheel];
-
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
 
