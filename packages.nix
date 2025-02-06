@@ -49,8 +49,8 @@
         zip # this might be important lmao
         unzip # AND THIS BWAHAHHAHA
         p7zip-rar
-        flameshot # screenshot
-
+        # flameshot # screenshot
+        hypershot
 
         # hyprland stuff
         kitty 
