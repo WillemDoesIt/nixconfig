@@ -46,6 +46,8 @@
         krita
         ranger # terminal file manager
         reaper # audio like thing
+        zip # this might be important lmao
+
 
         # hyprland stuff
         kitty 
