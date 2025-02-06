@@ -24,6 +24,7 @@
         neovim
         git
         discord
+        vencord # discord modifier
         obs-studio
         obsidian
         vscode
