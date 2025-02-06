@@ -50,7 +50,7 @@
         unzip # AND THIS BWAHAHHAHA
         p7zip-rar
         # flameshot # screenshot
-        hypershot
+        hyprshot
 
         # hyprland stuff
         kitty 
