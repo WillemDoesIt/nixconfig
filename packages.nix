@@ -51,6 +51,7 @@
         p7zip-rar
         # flameshot # screenshot
         hyprshot
+        swww # wallpaper daemon
 
         # hyprland stuff
         kitty 
