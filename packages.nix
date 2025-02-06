@@ -48,6 +48,9 @@
         reaper # audio like thing
         zip # this might be important lmao
         unzip # AND THIS BWAHAHHAHA
+        p7zip-rar
+        flameshot # screenshot
+
 
         # hyprland stuff
         kitty 
