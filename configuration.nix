@@ -73,15 +73,6 @@
     xwayland.enable = true;
   };
 
-  # setting up a greeter
-  services.greetd = {
-    enable = true;
-    settings.default_session = {
-      command = "Hyprland";
-      user = "willemvz";
-    };
-  };
-
   # Enable CUPS to print documents.
   services.printing.enable = true;
 
