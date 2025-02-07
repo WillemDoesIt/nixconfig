@@ -56,17 +56,13 @@
         p7zip-rar
         # flameshot # screenshot
         hyprshot
-        swww # wallpaper daemon
 
-        # this is how imma setup middle click autoscroll
-        imwheel        
-
-        # hyprland stuff
-        kitty 
-        waybar
-        dunst
+        # hyprland stuff 
+        waybar        # menu bar
+        dunst         # notification daemon
         libnotify
-        rofi-wayland
+        rofi-wayland  # program runner
+        swww          # wallpaper daemon
 
         # microsoft
         p3x-onenote
