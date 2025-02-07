@@ -36,7 +36,7 @@
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
     ./packages.nix
-    ./waybar.nix
+    #./waybar.nix
   ];
 
   # Bootloader.
@@ -94,8 +94,6 @@
 
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
-
-  programs.home-manager.enable = true;
 
   programs.steam.enable = true;
 
