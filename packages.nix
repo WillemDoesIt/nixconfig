@@ -20,6 +20,7 @@
         alacritty
         ollama
         ranger       # terminal file manager
+        nemo         # gui file manager
         discord
         vencord      # discord modifier
         obs-studio
