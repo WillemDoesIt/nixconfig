@@ -80,6 +80,7 @@
         libnotify
         rofi-wayland  # program runner
         swww          # wallpaper daemon
+        playerctl     # media control for shortcuts
 
         # rust stuff
         cargo
