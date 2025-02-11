@@ -13,61 +13,73 @@
                 zulu
             ];
         })
-
-        thunderbird
+        
+        # typical apps
         spotify
-        vlc
         btop
         alacritty
-        vim
-        neovim
-        git
+        ollama
+        ranger       # terminal file manager
         discord
-        vencord # discord modifier
+        vencord      # discord modifier
         obs-studio
         obsidian
-        vscode
-        brave
-        gimp
-        davinci-resolve
-        steam
-        libreoffice
+        brave        # browser
+        #thunderbird # email client
         beeper
         ticktick
         alejandra
+        steam
+        audacity
+
+        # microsoft
+        p3x-onenote   # kinda useless, just web shit
+        evolution
+        onedrive
+        
+        # media viewer
+        vlc
         mpv # not sure if I wanna keep this
+
+        # utils
+        git
+        man
+        tldr
+
+        # file editing
+        gimp
+        krita
+        davinci-resolve
+        libreoffice
+        vscode
+        vim
+        neovim
+        #reaper # audio tool
         
         # uselesss terminall stuffs
         neofetch
         pipes
         cowsay
 
-
-        audacity
-        ollama
-        man
-        tldr 
-        transmission_4-qt # torrent
-        krita
-        ranger # terminal file manager
-        reaper # audio like thing
-        zip # this might be important lmao
-        unzip # AND THIS BWAHAHHAHA
+        # torrent engines
+        transmission_4-qt
+        #qbittorrent-nox
+        
+        # zip tools
+        zip
+        unzip
         p7zip-rar
-        # flameshot # screenshot
-        hyprshot
 
+        # screenshot tool
+        hyprshot
+        #flameshot
+        
         # hyprland stuff 
         waybar        # menu bar
         dunst         # notification daemon
         libnotify
         rofi-wayland  # program runner
         swww          # wallpaper daemon
-
-        # microsoft
-        p3x-onenote
-        evolution
-        onedrive
 
         # rust stuff
         cargo
@@ -83,7 +95,6 @@
         ripgrep
         fd
         lazygit
-
-        jetbrains-mono
+        jetbrains-mono # font
     ];
 }
