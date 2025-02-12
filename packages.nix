@@ -13,7 +13,9 @@
                 zulu
             ];
         })
-        
+       
+        a;sldjf;lajdsf
+
         # typical apps
         spotify
         btop
