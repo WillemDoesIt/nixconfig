@@ -46,6 +46,7 @@
         git
         man
         tldr
+        killall
 
         # file editing
         gimp
