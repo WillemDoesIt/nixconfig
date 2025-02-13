@@ -104,5 +104,9 @@
     lazygit
     jetbrains-mono # font
     nerdfonts      # this may not work lmao
+    
+
+    # dark mode (please)
+    adwaita-qt6
   ];
 }
