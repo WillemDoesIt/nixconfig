@@ -88,6 +88,8 @@
     swww          # wallpaper daemon, not sure why I'm not using hyprpaper
     hyprlock      # lock screen manager
     playerctl     # media control for shortcuts
+    adwaita-qt    # should do dark theme for gtk
+    adwaita-qt6
     
     # rust stuff
     cargo
@@ -105,9 +107,5 @@
     lazygit
     jetbrains-mono # font
     nerdfonts      # this may not work lmao
-    
-
-    # dark mode (please)
-    adwaita-qt6
   ];
 }
