@@ -99,6 +99,12 @@
 
   programs.nix-ld.enable = true;
 
+  services.xserver = {
+    enable = true;
+    layout = "us,es"; # keyboard layouts (assuming this works)
+    xkbOptions = "grp:win_space_toggle"; # shortcut to switch between
+  };
+
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.willemvz = {
     isNormalUser = true;
