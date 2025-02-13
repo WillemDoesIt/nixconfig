@@ -23,6 +23,7 @@
     ollama
     ranger       # terminal file manager
     nemo         # gui file manager
+    pcmanfm
     discord
     vencord      # discord modifier
     obs-studio
