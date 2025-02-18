@@ -30,6 +30,7 @@
     obsidian
     brave        # browser
     blender
+    godot_4
 
     #protonmail-desktop   # save this for when you make a proton email
     #thunderbird # email client
