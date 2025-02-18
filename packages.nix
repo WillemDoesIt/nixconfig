@@ -30,7 +30,7 @@
     obsidian
     brave        # browser
 
-    #thunderbird # email client
+    thunderbird # email client
     beeper
     ticktick
     alejandra
