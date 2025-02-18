@@ -39,6 +39,7 @@
     alejandra
     steam
     audacity
+    lynx # terminal based web browser
     
     # microsoft
     p3x-onenote   # kinda useless, just web shit
