@@ -104,7 +104,10 @@
     cmake
     clang
     lldb
-    
+   
+    #sql stuff
+    postgresql
+
     # nvchad stuff
     ripgrep
     fd
