@@ -30,7 +30,7 @@
     obsidian
     brave        # browser
 
-    protonmail-desktop
+    #protonmail-desktop   # save this for when you make a proton email
     #thunderbird # email client
     beeper
     ticktick
