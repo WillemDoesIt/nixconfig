@@ -37,7 +37,7 @@
     beeper
     ticktick
     alejandra
-    steam
+  
     audacity
     lynx # terminal based web browser
     
