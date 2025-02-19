@@ -17,6 +17,9 @@
     
     # temp!
     gedit
+    gnome-calculator
+    epiphany
+
 
     # typical apps
     spotify
