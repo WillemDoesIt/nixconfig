@@ -100,6 +100,7 @@
     adwaita-qt6
     breeze-gtk    # more dark theme stuff
     capitaine-cursors
+    lxappearance
    
     # rust stuff
     cargo
