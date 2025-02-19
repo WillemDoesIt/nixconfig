@@ -106,7 +106,8 @@
     lldb
    
     #sql stuff
-    postgresql
+    # postgresql # maybe another time...
+    sqlite
 
     # nvchad stuff
     ripgrep
