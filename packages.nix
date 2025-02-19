@@ -56,7 +56,7 @@
     man
     tldr
     killall
-    gsettings-qt
+    glib
     
     # file editing
     gimp
