@@ -101,7 +101,8 @@
 
   # dark mode maybe
   environment.variables = {
-    GTK_THEME = "Adwaita-dark"; # Change to your preferred dark theme
+    SAL_USE_VCLPLUGIN = "gtk3"; # Forces LibreOffice to use GTK3
+    GTK_THEME = "Adwaita-dark"; # Ensures GTK apps default to dark mode
   };
 
   qt.enable = true; # Ensures Qt apps match the theme if using them
