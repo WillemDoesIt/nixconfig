@@ -14,7 +14,7 @@
         zulu
       ];
     })
-        
+     
 
     # typical apps
     spotify
@@ -56,6 +56,7 @@
     man
     tldr
     killall
+    gsettings-qt
     
     # file editing
     gimp
