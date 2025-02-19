@@ -99,6 +99,14 @@
 
   programs.nix-ld.enable = true;
 
+  # dark mode maybe
+  environment.variables = {
+    GTK_THEME = "Adwaita-dark"; # Change to your preferred dark theme
+  };
+
+  qt.enable = true; # Ensures Qt apps match the theme if using them
+  qt.platformTheme = "gtk2";
+
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.willemvz = {
     isNormalUser = true;
