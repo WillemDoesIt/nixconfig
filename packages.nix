@@ -14,12 +14,6 @@
         zulu
       ];
     })
-    
-    # temp!
-    gedit
-    gnome-calculator
-    epiphany
-
 
     # typical apps
     spotify
@@ -106,6 +100,10 @@
     breeze-gtk    # more dark theme stuff
     capitaine-cursors
     lxappearance
+    gtk3
+    gtk2
+    gtk_engines
+
    
     # rust stuff
     cargo
