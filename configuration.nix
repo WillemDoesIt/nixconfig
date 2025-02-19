@@ -103,10 +103,8 @@
   environment.variables = {
     SAL_USE_VCLPLUGIN = "gtk3"; # Forces LibreOffice to use GTK3
     GTK_THEME = "Adwaita-dark"; # Ensures GTK apps default to dark mode
+    QT_QPA_PLATFORMTHEME = "gtk";
   };
-
-  qt.enable = true; # Ensures Qt apps match the theme if using them
-  qt.platformTheme = "gtk2";
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.willemvz = {
