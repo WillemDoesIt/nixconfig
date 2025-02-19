@@ -56,7 +56,9 @@
     man
     tldr
     killall
-    glib
+    glib # not sure what this is for
+    dconf
+    gnome-desktop
     
     # file editing
     gimp
