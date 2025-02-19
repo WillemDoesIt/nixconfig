@@ -98,7 +98,9 @@
     playerctl     # media control for shortcuts
     adwaita-qt    # should do dark theme for gtk
     adwaita-qt6
-    
+    breeze-gtk    # more dark theme stuff
+    capitaine-cursors
+   
     # rust stuff
     cargo
     
