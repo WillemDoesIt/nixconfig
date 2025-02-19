@@ -14,7 +14,9 @@
         zulu
       ];
     })
-     
+    
+    # temp!
+    gedit
 
     # typical apps
     spotify
