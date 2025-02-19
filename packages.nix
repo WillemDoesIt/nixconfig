@@ -103,6 +103,7 @@
     gtk3
     gtk2
     gtk_engines
+    openjdk
 
    
     # rust stuff
