@@ -32,7 +32,8 @@
     godot_4
     sqlitestudio
     sidequest
-    lollypop
+    # lollypop   # mid music player
+    audacious    # hopefully better one?
 
     #protonmail-desktop   # save this for when you make a proton email
     #thunderbird # email client
