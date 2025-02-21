@@ -32,9 +32,9 @@
     godot_4
     sqlitestudio
     sidequest
-    # lollypop   # mid music player
+    #lollypop    # mid music player
     audacious    # hopefully better one?
-    parsec-bin
+    #parsec-bin  # doesn't host !?
 
     #protonmail-desktop   # save this for when you make a proton email
     #thunderbird # email client
