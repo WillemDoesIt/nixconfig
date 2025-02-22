@@ -35,7 +35,8 @@
     #lollypop    # mid music player
     audacious    # hopefully better one?
     #parsec-bin  # doesn't host !?
-    xrdp
+    #xrdp
+    ollama
 
     #protonmail-desktop   # save this for when you make a proton email
     #thunderbird # email client
