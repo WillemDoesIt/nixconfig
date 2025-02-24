@@ -68,6 +68,12 @@
     LC_TIME = "en_US.UTF-8";
   };
 
+  fileSystems."/media/secondary_drive" = {
+    device = "/dev/disk/by-uuid/3c94cd16-d257-4584-9913-84dced3680b7"; # Replace with your UUID
+    fsType = "ext4";
+    options = ["defaults" "nofail" "x-systemd.automount"];
+  };
+
   programs.hyprland = {
     enable = true;
     xwayland.enable = true;
