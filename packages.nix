@@ -17,6 +17,7 @@
 
     # typical apps
     spotify
+    ncspot       # terminal spotify
     btop
     alacritty
     ollama
