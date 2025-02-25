@@ -93,12 +93,16 @@
     hyprshot
     #flameshot
    
+
+    # maybe rename this daemons for better organization ?
+
     # hyprland stuff 
     waybar        # menu bar
     dunst         # notification daemon
     libnotify
     rofi-wayland  # program runner
-    swww          # wallpaper daemon, not sure why I'm not using hyprpaper
+    #swww          # wallpaper daemon, not sure why I'm not using hyprpaper
+    linux-wallpaperengine # please work
     hyprlock      # lock screen manager
     playerctl     # media control for shortcuts
     adwaita-qt    # should do dark theme for gtk
