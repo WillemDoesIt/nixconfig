@@ -26,6 +26,7 @@
     pcmanfm
     discord
     #vencord     # discord modifier (didn't seem to work)
+    betterdiscord-installer # different discord modifier
     obs-studio
     obsidian
     brave        # browser
