@@ -37,6 +37,7 @@
     #parsec-bin  # doesn't host !?
     #xrdp
     ollama
+    findutils
 
     #protonmail-desktop   # save this for when you make a proton email
     #thunderbird # email client
