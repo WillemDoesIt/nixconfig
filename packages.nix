@@ -24,10 +24,7 @@
     ranger       # terminal file manager
     nemo         # gui file manager
     pcmanfm
-    discord
     vesktop     # discord modifier (didn't seem to work)
-    #betterdiscord-installer # different discord modifier
-    #betterdiscordctl
     obs-studio
     obsidian
     brave        # browser
