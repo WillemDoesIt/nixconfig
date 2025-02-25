@@ -27,6 +27,7 @@
     discord
     #vencord     # discord modifier (didn't seem to work)
     betterdiscord-installer # different discord modifier
+    betterdiscordctl
     obs-studio
     obsidian
     brave        # browser
