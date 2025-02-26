@@ -64,6 +64,7 @@
     glib # not sure what this is for
     dconf
     gnome-desktop
+    expressvpn
     
     # file editing
     gimp
