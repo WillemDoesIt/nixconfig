@@ -25,7 +25,7 @@
     nemo         # gui file manager
     pcmanfm
     discord
-    vesktop     # discord modifier (didn't seem to work)
+    vesktop      # discord modifier (didn't seem to work)
     obs-studio
     obsidian
     brave        # browser
@@ -36,9 +36,8 @@
     #lollypop    # mid music player
     audacious    # hopefully better one?
     #parsec-bin  # doesn't host !?
-    #xrdp
+    #xrdp        # remote desktop
     ollama
-
     #protonmail-desktop   # save this for when you make a proton email
     #thunderbird # email client
     beeper
@@ -46,7 +45,7 @@
     alejandra
     steam 
     audacity
-    lynx # terminal based web browser
+    #lynx # terminal based web browser
     
     # microsoft
     p3x-onenote   # kinda useless, just web shit
@@ -55,15 +54,15 @@
     
     # media viewer
     vlc
-    mpv # not sure if I wanna keep this
-    
+    mpv
+
     # utils
     git
     man
     tldr
     killall
-    glib # not sure what this is for
-    dconf
+    glib      # not sure what this is for
+    dconf     # or this...
     gnome-desktop
     expressvpn
     
@@ -103,8 +102,8 @@
     dunst         # notification daemon
     libnotify
     rofi-wayland  # program runner
-    #swww          # wallpaper daemon, not sure why I'm not using hyprpaper
-    linux-wallpaperengine # please work
+    #hyprpaper
+    mpvpaper      # live wallpaper (commmand run in hyprland.conf on startup)
     hyprlock      # lock screen manager
     playerctl     # media control for shortcuts
     adwaita-qt    # should do dark theme for gtk
@@ -116,7 +115,6 @@
     gtk2
     gtk_engines
     openjdk
-
    
     # rust stuff
     cargo
