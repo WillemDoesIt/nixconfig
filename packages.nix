@@ -24,6 +24,7 @@
     ranger       # terminal file manager
     nemo         # gui file manager
     pcmanfm
+    discord
     vesktop     # discord modifier (didn't seem to work)
     obs-studio
     obsidian
