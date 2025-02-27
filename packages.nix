@@ -52,7 +52,7 @@
     evolution
     onedrive
     teams-for-linux
-    #wineWowPackages.waylandFull
+    wineWowPackages.waylandFull
     
     # media viewer
     vlc
