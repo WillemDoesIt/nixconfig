@@ -51,6 +51,7 @@
     p3x-onenote   # kinda useless, just web shit
     evolution
     onedrive
+    teams-for-linux
     
     # media viewer
     vlc
