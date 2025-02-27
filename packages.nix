@@ -139,7 +139,11 @@
     ripgrep
     fd
     lazygit
+
+    # fonts 
     jetbrains-mono # font
     nerdfonts      # this may not work lmao
+    corefonts
+    vistafonts
   ];
 }
