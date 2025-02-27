@@ -52,8 +52,8 @@
     evolution
     onedrive
     teams-for-linux
-    bottles-unwrapped
-    #wineWowPackages.waylandFull
+    #bottles-unwrapped            # ways to run microsoft stuff on linux (doesn't seem to work)
+    #wineWowPackages.waylandFull 
     
     # media viewer
     vlc
@@ -66,7 +66,6 @@
     killall
     glib      # not sure what this is for
     dconf     # or this...
-    gnome-desktop
     expressvpn
     
     # file editing
@@ -109,9 +108,12 @@
     mpvpaper      # live wallpaper (commmand run in hyprland.conf on startup)
     hyprlock      # lock screen manager
     playerctl     # media control for shortcuts
-    adwaita-qt    # should do dark theme for gtk
+
+    # Dark theme stuff 
+    adwaita-qt
+    gnome.gnome-themes-extra
     adwaita-qt6
-    breeze-gtk    # more dark theme stuff
+    breeze-gtk
     capitaine-cursors
     lxappearance
     gtk3
