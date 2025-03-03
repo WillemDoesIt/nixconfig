@@ -72,6 +72,7 @@
     glib      # not sure what this is for
     dconf     # or this...
     expressvpn
+    roccat-tools  # for my keyboard
     
     # file editing
     gimp
