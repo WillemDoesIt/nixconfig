@@ -39,7 +39,7 @@
     #xrdp        # remote desktop
     ollama
     #protonmail-desktop   # save this for when you make a proton email
-    #thunderbird # email client
+    thunderbird # email client
     beeper
     ticktick
     alejandra
@@ -54,7 +54,15 @@
     teams-for-linux
     #bottles-unwrapped            # ways to run microsoft stuff on linux (doesn't seem to work)
     #wineWowPackages.waylandFull
+    
+
+
+    # email client evolution and it's dependencies
     evolution
+    evolution-ews  # Required for Microsoft Exchange Web Services (EWS)
+    gnome.gnome-keyring  # Manages saved credentials
+    gnome.seahorse  # Optional, GUI for managing stored credentials
+    libsoup
 
 
     # Games
