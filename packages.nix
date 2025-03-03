@@ -58,7 +58,7 @@
 
     # Games
     tetrio-desktop
-
+    lutris
     
     # media viewer
     vlc
