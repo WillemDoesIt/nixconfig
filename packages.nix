@@ -54,7 +54,7 @@
     teams-for-linux
     #bottles-unwrapped            # ways to run microsoft stuff on linux (doesn't seem to work)
     #wineWowPackages.waylandFull
-    msgviewer
+    evolution
 
 
     # Games
