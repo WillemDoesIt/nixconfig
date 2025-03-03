@@ -110,6 +110,9 @@
 
   programs.nix-ld.enable = true;
 
+  # for evolution email (if it doesn't work remove this)
+  services.gnome.gnome-keyring.enable = true;
+
   # dark mode maybe
   environment.variables = {
     SAL_USE_VCLPLUGIN = "gtk3"; # Forces LibreOffice to use GTK3
