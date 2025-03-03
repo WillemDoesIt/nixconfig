@@ -53,7 +53,12 @@
     onedrive
     teams-for-linux
     #bottles-unwrapped            # ways to run microsoft stuff on linux (doesn't seem to work)
-    #wineWowPackages.waylandFull 
+    #wineWowPackages.waylandFull
+
+
+    # Games
+    tetrio-desktop
+
     
     # media viewer
     vlc
