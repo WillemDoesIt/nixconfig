@@ -8,7 +8,6 @@
   nix.settings.experimental-features = ["nix-command" "flakes"];
 
   imports = [
-    ./dark-mode.nix
   ];
 
   # Bootloader.

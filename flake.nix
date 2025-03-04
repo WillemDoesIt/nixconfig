@@ -14,7 +14,7 @@
         ./hardware-configuration.nix
         ./packages.nix
         ./nvidia.nix
-        #./dark-mode.nix
+        ./dark-mode.nix
       ];
     };
   };
