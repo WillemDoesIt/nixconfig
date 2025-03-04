@@ -18,7 +18,7 @@
 
   environment.systemPackages = with pkgs; [
     adwaita-qt
-    gnome.gnome-themes-extra
+    #gnome.gnome-themes-extra
     #adwaita-qt6
     #breeze-gtk
     #capitaine-cursors
