@@ -88,6 +88,7 @@
     krita
     davinci-resolve
     libreoffice
+    freeoffice
     vscode
     vim
     neovim
