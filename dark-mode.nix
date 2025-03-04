@@ -4,7 +4,6 @@
   environment.etc."gtk-3.0/settings.ini".text = ''
     [Settings]
     gtk-application-prefer-dark-theme=1
-    gtk-theme-name=nordic;
   '';
 
   ##
@@ -28,8 +27,7 @@
   environment.systemPackages = with pkgs; [
     lxappearance
     gnome.gnome-themes-extra
-   
-    nordic
+
     /*
       adwaita-qt adwaita-qt6 breeze-gtk capitaine-cursors 
       gtk3 gtk2 gtk_engines openjdk kvantum qt5ct qt6ct 
