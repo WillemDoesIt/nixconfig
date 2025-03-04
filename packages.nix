@@ -15,137 +15,148 @@
       ];
     })
 
-    # typical apps
-    spotify
-    ncspot       # terminal spotify
+    ##
+    #  General
+    #
+    ##
     btop
     alacritty
     ollama
-    ranger       # terminal file manager
-    nemo         # gui file manager
-    pcmanfm
-    discord
-    vesktop      # discord modifier (didn't seem to work)
+    ranger                # terminal file manager
+      #alt: nnn           # even simpler
+    nemo                  # gui file manager
+      #alt: pcmanfm
+    vesktop  
+      discord
     obs-studio
-    obsidian
-    brave        # browser
-    blender
-    godot_4
-    sqlitestudio
+    brave
     sidequest
-    #lollypop    # mid music player
-    audacious    # hopefully better one?
-    #parsec-bin  # doesn't host !?
-    #xrdp        # remote desktop
-    ollama
-    #protonmail-desktop   # save this for when you make a proton email
-    thunderbird # email client
+    ncspot                # terminal spotify
+      spotify
+    audacious             # gui music
+      #alt: lollypop
     beeper
     ticktick
     alejandra 
-    audacity
-    #lynx # terminal based web browser
+    audacity 
+    transmission_4-qt     # torrent engine
+      #alt: qbittorrent-nox
+    ollama
+    vlc                   # media viewer
+      #alt: mpv
+
+    #parsec-bin           # doesn't host !?
+    #xrdp                 # remote desktop
+    #lynx                 # terminal based web browser
+    #parsec-bin           # doesn't host !?
+    #xrdp                 # remote desktop
+
     
-    # microsoft
-    p3x-onenote   # kinda useless, just web shit
-    evolution
+    ##
+    #  File editing
+    #
+    ##
+    gimp
+    krita
+    davinci-resolve
+    obsidian       
+    blender
+    godot_4
+    sqlitestudio
+    vscode
+    neovim
+      vim
+      ripgrep
+      fd
+      lazygit
+    #reaper               # audio tool
+
+
+    ##
+    #  Microsoft / Office
+    #
+    ##
+    p3x-onenote                 # kinda useless, just web shit
+    libreoffice   
+      #alt: freeoffice
     onedrive
     teams-for-linux
-    #bottles-unwrapped            # ways to run microsoft stuff on linux (doesn't seem to work)
-    #wineWowPackages.waylandFull
-    
+    thunderbird                 # email client 
+      #alt: protonmail-desktop  # save this for when you make a proton email
+    evolution                   # email client evolution
+      evolution-ews             # Required for Microsoft Exchange Web Services (EWS)
+      gnome.gnome-keyring       # Manages saved credentials
+      gnome.seahorse            # Optional, GUI for managing stored credentials
+      libsoup
+    #dnw: bottles-unwrapped            # ways to run microsoft stuff on linux
+    #dnw: wineWowPackages.waylandFull
 
-
-    # email client evolution and it's dependencies
-    evolution
-    evolution-ews  # Required for Microsoft Exchange Web Services (EWS)
-    gnome.gnome-keyring  # Manages saved credentials
-    gnome.seahorse  # Optional, GUI for managing stored credentials
-    libsoup
-
-
-    # Games
+    ##
+    #  Games
+    #
+    ##
     tetrio-desktop
     lutris
     steam
-    
-    # media viewer
-    vlc
-    mpv
 
-    # utils
+
+    ## 
+    #  Utils
+    #
+    ##
     git
     man
     tldr
     killall
-    glib      # not sure what this is for
-    dconf     # or this...
+    glib                # not sure what this is for
+    dconf               # or this...
     expressvpn
-    roccat-tools  # for my keyboard
-    
-    # file editing
-    gimp
-    krita
-    davinci-resolve
-    libreoffice
-    freeoffice
-    vscode
-    vim
-    neovim
-    #reaper # audio tool
-    
+    zip
+    unzip
+    p7zip-rar
+    hyprshot            # screenshot tool
+      #alt: flameshot
+    #dnw: roccat-tools  # for Roccat (brand) keyboard (25.03.04)
+
+
     # uselesss terminall stuffs
     neofetch
     pipes
     cowsay
-    
-    # torrent engines
-    transmission_4-qt
-    #qbittorrent-nox
-    
-    # zip tools
-    zip
-    unzip
-    p7zip-rar
-    
-    # screenshot tool
-    hyprshot
-    #flameshot
    
 
-    # maybe rename this daemons for better organization ?
-
-    # hyprland stuff 
+    ##
+    #  Hyprland dependencies and daemons
+    #
+    ##
     waybar        # menu bar
     dunst         # notification daemon
-    libnotify
+      libnotify
     rofi-wayland  # program runner
-    #hyprpaper
     mpvpaper      # live wallpaper (commmand run in hyprland.conf on startup)
-    hyprlock      # lock screen manager
+      #alt: hyprpaper
     playerctl     # media control for shortcuts
+    #dnw: hyprlock      # lock screen manager 
 
-      
-    # rust stuff
+
+    ##
+    #  Programming Languages
+    #
+    ##
     cargo
-    
-    # cpp stuff
     gcc
-    gnumake
-    cmake
-    clang
-    lldb
-   
-    #sql stuff
-    # postgresql # maybe another time...
+      gnumake
+      cmake
+      clang
+      lldb
     sqlite
+      #alt: postgresql
 
-    # nvchad stuff
-    ripgrep
-    fd
-    lazygit
 
-    # fonts 
+    ##
+    #  Fonts 
+    #
+    ##
     jetbrains-mono # font
     nerdfonts      # this may not work lmao
     corefonts
