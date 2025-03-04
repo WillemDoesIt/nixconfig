@@ -124,18 +124,7 @@
     hyprlock      # lock screen manager
     playerctl     # media control for shortcuts
 
-    # Dark theme stuff 
-    adwaita-qt
-    gnome.gnome-themes-extra
-    adwaita-qt6
-    breeze-gtk
-    capitaine-cursors
-    lxappearance
-    gtk3
-    gtk2
-    gtk_engines
-    openjdk
-   
+      
     # rust stuff
     cargo
     

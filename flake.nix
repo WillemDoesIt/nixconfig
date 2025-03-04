@@ -11,6 +11,10 @@
       system = "x86_64-linux";
       modules = [
         ./configuration.nix
+        ./hardware-configuration.nix
+        ./packages.nix
+        ./nvidia.nix
+        #./dark-mode.nix
       ];
     };
   };

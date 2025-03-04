@@ -8,10 +8,7 @@
   nix.settings.experimental-features = ["nix-command" "flakes"];
 
   imports = [
-    ./hardware-configuration.nix
-    ./packages.nix
-    ./nvidia.nix
-    #./waybar.nix
+    # this should remain empty, other nix files should be refrenced in modules within flake.nix
   ];
 
   # Bootloader.
@@ -91,13 +88,6 @@
   # for evolution email (if it doesn't work remove this)
   services.gnome.gnome-keyring.enable = true;
 
-  # dark mode maybe
-  environment.variables = {
-    SAL_USE_VCLPLUGIN = "gtk3"; # Forces LibreOffice to use GTK3
-    GTK_THEME = "Adwaita-dark"; # Ensures GTK apps default to dark mode
-    QT_QPA_PLATFORMTHEME = "gtk";
-  };
-
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.willemvz = {
     isNormalUser = true;
@@ -111,25 +101,6 @@
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
-
-  # Some programs need SUID wrappers, can be configured further or are
-  # started in user sessions.
-  # programs.mtr.enable = true;
-  # programs.gnupg.agent = {
-  #   enable = true;
-  #   enableSSHSupport = true;
-  # };
-
-  # List services that you want to enable:
-
-  # Enable the OpenSSH daemon.
-  # services.openssh.enable = true;
-
-  # Open ports in the firewall.
-  # networking.firewall.allowedTCPPorts = [ ... ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
-  # Or disable the firewall altogether.
-  # networking.firewall.enable = false;
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
