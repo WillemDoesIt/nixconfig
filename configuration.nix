@@ -8,7 +8,7 @@
   nix.settings.experimental-features = ["nix-command" "flakes"];
 
   imports = [
-    # this should remain empty, other nix files should be refrenced in modules within flake.nix
+    ./dark-mode.nix
   ];
 
   # Bootloader.
