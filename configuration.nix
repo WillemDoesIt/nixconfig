@@ -1,43 +1,16 @@
-# Edit this configuration file to define what should be installed on
-# your system.  Help is available in the configuration.nix(5) man page
-# and in the NixOS manual (accessible by running ‘nixos-help’).
 {
   config,
   lib,
   pkgs,
   ...
 }: {
-  # NVIDIA STUFF https://nixos.wiki/wiki/Nvidia
-
-  # Enable OpenGL
-  hardware.graphics = {
-    enable = true;
-  };
-
-  # Load nvidia driver for Xorg and Wayland
-  services.xserver.videoDrivers = ["nvidia"];
-
-  hardware.nvidia = {
-    modesetting.enable = true;
-
-    # Buggy Experimental Settings
-    powerManagement.enable = false;
-    powerManagement.finegrained = false;
-    open = false;
-
-    # activate menu app
-    nvidiaSettings = true;
-
-    # Optionally, you may need to select the appropriate driver version for your specific GPU.
-    package = config.boot.kernelPackages.nvidiaPackages.stable;
-  };
-
+  # enable flakes
   nix.settings.experimental-features = ["nix-command" "flakes"];
 
   imports = [
-    # Include the results of the hardware scan.
     ./hardware-configuration.nix
     ./packages.nix
+    ./nvidia.nix
     #./waybar.nix
   ];
 
@@ -76,10 +49,15 @@
     options = ["defaults" "nofail" "x-systemd.automount"];
   };
 
+  ####
+  # DESKTOP
+  # ENVIRONMENT
+  ####
   programs.hyprland = {
     enable = true;
     xwayland.enable = true;
   };
+  ####
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
