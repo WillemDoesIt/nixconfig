@@ -42,8 +42,7 @@
     thunderbird # email client
     beeper
     ticktick
-    alejandra
-    steam 
+    alejandra 
     audacity
     #lynx # terminal based web browser
     
@@ -68,6 +67,7 @@
     # Games
     tetrio-desktop
     lutris
+    steam
     
     # media viewer
     vlc
