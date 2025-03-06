@@ -143,13 +143,13 @@
     #  Programming Languages
     #
     ##
-    cargo
+    #cargo
     gcc
       gnumake
       cmake
       clang
       lldb
-    sqlite
+    #sqlite
       #alt: postgresql
 
 
