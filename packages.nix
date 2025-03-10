@@ -91,6 +91,7 @@
     #dnw: bottles-unwrapped            # ways to run microsoft stuff on linux
     #dnw: wineWowPackages.waylandFull
 
+
     ##
     #  Games
     #
@@ -141,14 +142,14 @@
 
     ##
     #  Programming Languages
-    #
+    #  Given how flakes handel things I typically keep all this commented out :P
     ##
     #cargo
-    gcc
-      gnumake
-      cmake
-      clang
-      lldb
+    #gcc
+    #  gnumake
+    #  cmake
+    #  clang
+    #  lldb
     #sqlite
       #alt: postgresql
 
