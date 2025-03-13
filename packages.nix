@@ -21,6 +21,19 @@
     #
     ##
     xfce.mousepad
+    nushell         # alternative shell
+    sccache
+    eza             # better `ls`
+    dust            # wintree for linux
+    bat             # better `cat`
+    gitui
+    porsmo          # pomodoro
+    wiki-tui        # wikipedia tui
+    
+    irust           # rust dev tool
+    cargo-info 
+    bacon
+    sccache
 
     ##
     #  General
