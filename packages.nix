@@ -29,6 +29,7 @@
     gitui
     porsmo          # pomodoro
     wiki-tui        # wikipedia tui
+    gthumb
     
     irust           # rust dev tool
     cargo-info 
