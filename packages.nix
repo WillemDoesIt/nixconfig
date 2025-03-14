@@ -30,6 +30,7 @@
     porsmo          # pomodoro
     wiki-tui        # wikipedia tui
     nomacs
+    gparted
     
     irust           # rust dev tool
     cargo-info 
