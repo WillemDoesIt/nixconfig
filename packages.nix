@@ -58,6 +58,7 @@
     audacious             # gui music
       #alt: lollypop
     beeper
+    element
     ticktick
     alejandra 
     audacity 
