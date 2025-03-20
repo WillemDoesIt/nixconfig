@@ -33,6 +33,7 @@
     gparted
     docker
     docui
+    kitty
     
     irust           # rust dev tool
     cargo-info 
