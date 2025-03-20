@@ -161,7 +161,7 @@
       libnotify
     rofi-wayland  # program runner
     mpvpaper      # live wallpaper (commmand run in hyprland.conf on startup)
-      #alt: hyprpaper
+    hyprpaper
     playerctl     # media control for shortcuts
     #dnw: hyprlock      # lock screen manager 
 
