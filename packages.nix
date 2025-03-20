@@ -67,14 +67,13 @@
     ollama
     vlc                   # media viewer
       #alt: mpv
+    reaper
 
     #parsec-bin           # doesn't host !?
     #xrdp                 # remote desktop
     #lynx                 # terminal based web browser
-    #parsec-bin           # doesn't host !?
-    #xrdp                 # remote desktop
-
     
+
     ##
     #  File editing
     #
