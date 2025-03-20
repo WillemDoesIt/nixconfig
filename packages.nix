@@ -31,6 +31,7 @@
     wiki-tui        # wikipedia tui
     nomacs
     gparted
+    docker
     
     irust           # rust dev tool
     cargo-info 
