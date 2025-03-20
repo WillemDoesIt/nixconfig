@@ -76,6 +76,13 @@
     #media-session.enable = true;
   };
 
+  virtualisation.docker.enable = true;
+
+  #services.docker = {
+  #  enable = true;
+  #  extraOptions = "--add-runtime nvidia=/usr/bin/nvidia-container-runtime";
+  #};
+
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
 
