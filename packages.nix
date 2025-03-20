@@ -32,7 +32,7 @@
     nomacs
     gparted
     docker
-    docker-ls
+    docui
     
     irust           # rust dev tool
     cargo-info 
