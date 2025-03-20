@@ -34,6 +34,7 @@
     docker
     docui
     kitty
+    fish
     
     irust           # rust dev tool
     cargo-info 
