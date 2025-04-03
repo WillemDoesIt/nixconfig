@@ -35,6 +35,7 @@
     docui
     kitty
     fish
+    busybox
     
     irust           # rust dev tool
     cargo-info 
