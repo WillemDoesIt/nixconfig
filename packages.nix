@@ -33,8 +33,6 @@
     gparted
     docker
     docui
-    kitty
-    fish
     busybox
     
     irust           # rust dev tool
@@ -47,7 +45,7 @@
     #
     ##
     btop
-    alacritty
+    kitty fish            # terminal and shell
     ollama
     ranger                # terminal file manager
       #alt: nnn           # even simpler
