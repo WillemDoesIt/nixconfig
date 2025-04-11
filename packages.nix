@@ -33,8 +33,7 @@
     gparted
     docker
     docui
-    busybox
-    lazygit         # this might already be in neovim, and I don't think imma bother for a bit of time to figuer out how to integrate the two if not, but I still feel as though I should install this
+    busybox 
     
     irust           # rust dev tool
     cargo-info 
