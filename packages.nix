@@ -113,7 +113,7 @@
       gnome.seahorse            # Optional, GUI for managing stored credentials
       libsoup
     #dnw: bottles-unwrapped            # ways to run microsoft stuff on linux
-    #dnw: wineWowPackages.waylandFull
+    wineWowPackages.waylandFull
 
 
     ##
