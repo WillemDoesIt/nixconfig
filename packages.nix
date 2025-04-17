@@ -34,6 +34,7 @@
     docker
     docui
     busybox 
+    pavucontrol
     
     irust           # rust dev tool
     cargo-info 
