@@ -96,6 +96,7 @@
       ripgrep
       fd
       lazygit
+      vimPlugins.rustaceanvim
     #reaper               # audio tool
 
 
