@@ -37,6 +37,7 @@
     pavucontrol
     stockfish
     en-croissant
+    nodejs_23
     
     cargo
     rustc
