@@ -35,6 +35,7 @@
     docui
     busybox 
     pavucontrol
+    stockfish
     
     cargo
     rustc
