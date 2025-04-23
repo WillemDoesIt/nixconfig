@@ -36,6 +36,8 @@
     busybox 
     pavucontrol
     
+    cargo
+    rustc
     irust           # rust dev tool
     cargo-info 
     bacon
