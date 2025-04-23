@@ -38,6 +38,11 @@
     stockfish
     en-croissant
     nodejs_23
+    gccgo14
+    libgcc
+    cl
+    zig
+
     
     cargo
     rustc
