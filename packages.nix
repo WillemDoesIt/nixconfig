@@ -36,6 +36,7 @@
     busybox 
     pavucontrol
     stockfish
+    en-croissant
     
     cargo
     rustc
