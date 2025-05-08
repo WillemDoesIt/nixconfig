@@ -42,6 +42,7 @@
     libgcc
     cl
     zig
+    blueberry
 
     
     cargo
