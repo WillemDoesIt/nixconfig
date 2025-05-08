@@ -75,6 +75,7 @@
     # no need to redefine it in your config for now)
     #media-session.enable = true;
   };
+  hardware.bluetooth.enable = true;
 
   virtualisation.docker.enable = true;
 
