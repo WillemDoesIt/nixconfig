@@ -197,7 +197,8 @@
     ##
     jetbrains-mono # font
     nerdfonts      # this may not work lmao
-    corefonts
+    corefonts      # microsoft fonts not working.
+    wineWowPackages.fonts
     vistafonts
   ];
 }
