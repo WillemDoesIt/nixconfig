@@ -44,7 +44,9 @@
     zig
     blueberry
     networkmanager
-    
+    cudaPackages.cudatoolkit
+    cbonsai
+
     cargo
     rustc
     irust           # rust dev tool
