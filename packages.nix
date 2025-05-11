@@ -43,7 +43,7 @@
     cl
     zig
     blueberry
-
+    networkmanager
     
     cargo
     rustc
