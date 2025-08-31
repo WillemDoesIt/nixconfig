@@ -13,6 +13,7 @@
         ./configuration.nix
         ./hardware-configuration.nix
         ./packages.nix
+	./de/hyprland.nix # alt: ./de/sway.nix
         ./nvidia.nix
         ./dark-mode.nix
       ];

@@ -15,6 +15,11 @@
       ];
     })
 
+    # this makes `re` a command that runs the rebuild script
+    (pkgs.writeShellScriptBin "re" ''
+      bash /etc/nixos/rebuild "$@"
+    '')
+
 
     ##
     #  TEMP
@@ -23,7 +28,6 @@
     xfce.mousepad
     nushell         # alternative shell
     sccache
-    eza             # better `ls`
     dust            # wintree for linux
     bat             # better `cat`
     gitui
@@ -41,11 +45,12 @@
     gccgo14
     libgcc
     cl
-    zig
     blueberry
     networkmanager
     cudaPackages.cudatoolkit
     cbonsai
+    xdg-user-dirs
+    hyprcursor
 
     cargo
     rustc
@@ -68,6 +73,7 @@
     vesktop  
       discord
     obs-studio
+    firefox
     brave
     sidequest
     ncspot                # terminal spotify

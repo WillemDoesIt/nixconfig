@@ -47,16 +47,6 @@
     options = ["defaults" "nofail" "x-systemd.automount"];
   };
 
-  ####
-  # DESKTOP
-  # ENVIRONMENT
-  ####
-  programs.hyprland = {
-    enable = true;
-    xwayland.enable = true;
-  };
-  ####
-
   # Enable CUPS to print documents.
   services.printing.enable = true;
 
@@ -88,7 +78,7 @@
   # services.xserver.libinput.enable = true;
 
   programs.steam.enable = true;
-
+  services.expressvpn.enable = true;
   services.gvfs.enable = true;
   services.udisks2.enable = true;
 
