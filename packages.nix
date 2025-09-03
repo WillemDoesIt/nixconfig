@@ -25,7 +25,6 @@
     #  TEMP
     #
     ##
-    xfce.mousepad
     nushell         # alternative shell
     sccache
     dust            # wintree for linux
