@@ -50,6 +50,7 @@
     cbonsai
     xdg-user-dirs
     hyprcursor
+    sageWithDoc
 
     cargo
     rustc
