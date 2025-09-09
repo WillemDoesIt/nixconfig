@@ -51,6 +51,7 @@
     xdg-user-dirs
     hyprcursor
     sageWithDoc
+    wireshark
 
     cargo
     rustc
