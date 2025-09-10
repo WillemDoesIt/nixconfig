@@ -109,6 +109,7 @@
     godot_4
     sqlitestudio
     vscode
+    lunarvim
     neovim
       vim
       ripgrep
