@@ -164,7 +164,6 @@
     # uselesss terminall stuffs
     neofetch
     pipes
-    cowsay
    
 
     ##
