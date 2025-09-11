@@ -1,12 +1,12 @@
 #!/usr/bin/env bash
-set -e
+set -euo pipefail
 
 origin=$(pwd)
-time_file="/home/willemvz/Programs/nixscripts/nixos-rebuild-time.txt"
-log_file="/home/willemvz/Programs/nixscripts/nixos-switch.log"
+time_file="$HOME/Programs/nixscripts/nixos-rebuild-time.txt"
+log_file="$HOME/Programs/nixscripts/nixos-switch.log"
 
 mode="default"
-case "$1" in
+case "${1:-}" in
   -sync)  mode="sync" ;;
   -syncw) mode="syncw" ;;
 esac
@@ -14,7 +14,7 @@ esac
 cd /etc/nixos
 
 # fast path: skip rebuild if sync and nothing changed
-if [[ "$mode" == "sync" || "$mode" == "syncw" ]]; then
+if [[ "$mode" =~ sync ]]; then
   git fetch
   if git status -uno | grep -q "up to date" && git diff --quiet; then
     echo "Already up to date. Skipping rebuild."
@@ -24,40 +24,36 @@ if [[ "$mode" == "sync" || "$mode" == "syncw" ]]; then
 fi
 
 # edit step (skip for -sync)
-if [[ "$mode" != "sync" ]]; then
-  sudo -E nvim packages.nix
-fi
+[[ "$mode" != "sync" ]] && sudo -E nvim packages.nix
 
+# format config
 sudo alejandra /etc/nixos/configuration.nix &>/dev/null
 
+# show staged diff
 git diff -U0
 
-# load previous build time
-prev_time=0
-[[ -f "$time_file" ]] && prev_time=$(cat "$time_file")
+# previous build time
+prev_time=$(<"$time_file" 2>/dev/null || echo 0)
 
 echo "NixOS Rebuilding..."
 cd "$origin"
 
 spinner() {
-  local pid=$1
-  local start_time=$(date +%s)
-  local spinstr='|/-\'
-  local i=0
-  while ps -p "$pid" > /dev/null; do
-    local elapsed=$(( $(date +%s) - start_time ))
-    printf "\r[ %2ds / %2ds (prev) ] %s" "$elapsed" "$prev_time" "${spinstr:$i:1}"
-    i=$(( (i + 1) % 3 ))
+  local pid=$1 start=$(date +%s) spin='|/-\' i=0
+  while ps -p "$pid" &>/dev/null; do
+    local elapsed=$(( $(date +%s) - start ))
+    printf "\r[ %2ds / %2ds (prev) ] %s" "$elapsed" "$prev_time" "${spin:i:1}"
+    i=$(( (i+1) % ${#spin} ))
     sleep 0.1
   done
-  local total_time=$(( $(date +%s) - start_time ))
-  echo "$total_time" > "$time_file"
-  printf "\r[ %2ds / %2ds (prev) ] ✔\n" "$total_time" "$prev_time"
+  local total=$(( $(date +%s) - start ))
+  echo "$total" > "$time_file"
+  printf "\r[ %2ds / %2ds (prev) ] ✔\n" "$total" "$prev_time"
 }
 
-[[ -f "$log_file" ]] || { touch "$log_file"; echo "Created log file at $log_file"; }
+[[ -f "$log_file" ]] || touch "$log_file"
 
-sudo nixos-rebuild switch &>$log_file &
+sudo nixos-rebuild switch &>"$log_file" &
 nixos_pid=$!
 
 echo -e "\n\033[1;33m-- TIP ------------------------------------\033[0m"
@@ -67,30 +63,25 @@ echo -e "\033[1;33m-------------------------------------------\033[0m\n"
 spinner $nixos_pid
 
 if ! wait $nixos_pid; then
-  echo -e "\n\n\e[0mAw fuck. You fucked it. Your os is on life support because of your incompitence. You fucking morron.\e[0m\n\n"
+  echo -e "\n\n\e[31mAw fuck. You fucked it. Your OS is on life support.\e[0m\n\n"
   echo -n "Nothing committed due to "
-  grep --color error "$log_file" | sort -u && false
+  grep --color error "$log_file" | sort -u || true
+  exit 1
+fi
+
+# commit + push
+gen=$(sudo nixos-rebuild list-generations | grep current)
+
+if git diff --quiet; then
+  echo -e "\e[32m✔ Nothing to commit (already up to date)\e[0m"
 else
-  git pull --rebase --quiet || true
-  if ! git diff --quiet; then
-    echo -e "\n\n\e[32mRebuild Done Successfully! ദ്ദി(˵ •̀ ᴗ - ˵ ) ✧\e[0m\n\n"
-    gen=$(sudo nixos-rebuild list-generations | grep current)
-
-    if git diff --quiet; then
-      echo -e "\e[32m✔ Nothing to commit (already up to date)\e[0m"
-      exit 0
-    fi
-    
-    git add -A
-    git commit -m "$gen" --quiet || { echo -e "\e[31m✘ Commit failed\e[0m"; exit 1; }
-    git pull --rebase --quiet || { echo -e "\e[31m✘ Pull failed\e[0m"; exit 1; }
-    git push --quiet || { echo -e "\e[31m✘ Push failed\e[0m"; exit 1; }
-    
-    echo -e "\e[32m✔ Git committed + pushed\e[0m"
-    echo "   Generation: $gen"
-  fi
+  echo -e "\n\n\e[32mRebuild Done Successfully! ദ്ദി(˵ •̀ ᴗ - ˵ ) ✧\e[0m\n\n"
+  git add -A
+  git commit -m "$gen" --quiet || { echo -e "\e[31m✘ Commit failed\e[0m"; exit 1; }
+  git pull --rebase --quiet || { echo -e "\e[31m✘ Pull failed\e[0m"; exit 1; }
+  git push --quiet || { echo -e "\e[31m✘ Push failed\e[0m"; exit 1; }
+  echo -e "\e[32m✔ Git committed + pushed\e[0m"
+  echo "   Generation: $gen"
 fi
 
-if [[ "$mode" == "syncw" ]]; then
-  sudo -E nvim packages.nix
-fi
+[[ "$mode" == "syncw" ]] && sudo -E nvim packages.nix
