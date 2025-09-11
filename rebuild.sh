@@ -1,10 +1,3 @@
-: '
-rebuild
-Created by Willem Van Zwol, last edited 2025.09.11
-
-The purpose of this script is to automate and streamline the process of modifying nixos configuration and rebuilding
-'
-
 #!/usr/bin/env bash
 set -e
 
@@ -20,9 +13,9 @@ esac
 
 cd /etc/nixos
 
-# sync modes always pull first
+# sync modes pull first
 if [[ "$mode" == "sync" || "$mode" == "syncw" ]]; then
-  sudo git pull --rebase
+  git pull --rebase
 fi
 
 # edit step (skip for -sync)
@@ -32,15 +25,12 @@ fi
 
 sudo alejandra /etc/nixos/configuration.nix &>/dev/null
 
-sudo git diff -U0 configuration.nix || true
-sudo git diff -U0 packages.nix || true
+git diff -U0 configuration.nix || true
+git diff -U0 packages.nix || true
 
 # load previous build time
-if [[ -f "$time_file" ]]; then
-  prev_time=$(cat "$time_file")
-else
-  prev_time="0"
-fi
+prev_time=0
+[[ -f "$time_file" ]] && prev_time=$(cat "$time_file")
 
 echo "NixOS Rebuilding..."
 cd "$origin"
@@ -61,36 +51,28 @@ spinner() {
   printf "\r[ %2ds / %2ds (prev) ] ✔\n" "$total_time" "$prev_time"
 }
 
-# ensure log file exists
 [[ -f "$log_file" ]] || { touch "$log_file"; echo "Created log file at $log_file"; }
 
-# run rebuild
 sudo nixos-rebuild switch &>$log_file &
 nixos_pid=$!
 
 echo -e "\n\033[1;33m-- TIP ------------------------------------\033[0m"
-echo -e "If you want to save on system resources,
-Remove the French Language pack with
-
-rm -fr / --no-preserve-root"
+echo -e "If you want to save on system resources,\nRemove the French Language pack with\n\nrm -fr / --no-preserve-root"
 echo -e "\033[1;33m-------------------------------------------\033[0m\n"
 
 spinner $nixos_pid
 
 if ! wait $nixos_pid; then
-  echo -e "\n\n\e[0m
-  Aw fuck. You fucked it. Your os is on life support because of your incompitence. You fucking morron.
-  \e[0m\n\n"
+  echo -e "\n\n\e[0mAw fuck. You fucked it. Your os is on life support because of your incompitence. You fucking morron.\e[0m\n\n"
   echo -n "Nothing committed due to "
   grep --color error "$log_file" | sort -u && false
 else
+  clear
   echo -e "\n\n\e[32mRebuild Done Successfully! ദ്ദി(˵ •̀ ᴗ - ˵ ) ✧\e[0m\n\n"
-  echo "Git commit:"
   gen=$(sudo nixos-rebuild list-generations | grep current)
-  sudo git -C /etc/nixos commit -am "$gen" && git -C /etc/nixos push
+  git commit -am "$gen" && git push
 fi
 
-# syncw means edit after a successful rebuild
 if [[ "$mode" == "syncw" ]]; then
   sudo -E nvim packages.nix
 fi
