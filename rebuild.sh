@@ -13,9 +13,14 @@ esac
 
 cd /etc/nixos
 
-# sync modes pull first
+# fast path: skip rebuild if sync and nothing changed
 if [[ "$mode" == "sync" || "$mode" == "syncw" ]]; then
-  git pull --rebase
+  git fetch
+  if git status -uno | grep -q "up to date" && git diff --quiet; then
+    echo "Already up to date. Skipping rebuild."
+    [[ "$mode" == "syncw" ]] && sudo -E nvim packages.nix
+    exit 0
+  fi
 fi
 
 # edit step (skip for -sync)
