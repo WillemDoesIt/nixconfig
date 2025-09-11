@@ -20,6 +20,10 @@
       bash /etc/nixos/rebuild.sh "$@"
     '')
 
+    # this makes `texpdf` a command that runs the texpdf script
+    (writeShellScriptBin "texpdf" ''
+      bash /etc/nixos/texpdf.sh "$@"
+    '')
 
     ##
     #  TEMP
@@ -45,7 +49,6 @@
     cudaPackages.cudatoolkit
     cbonsai
     xdg-user-dirs
-    hyprcursor
     sageWithDoc
     wireshark
     texlive.combined.scheme-full
@@ -104,9 +107,7 @@
     obsidian       
     blender
     godot_4
-    sqlitestudio
     vscode
-    lunarvim
     neovim
       vim
       ripgrep
@@ -153,13 +154,9 @@
     man
     tldr
     killall
-    glib                # not sure what this is for
-    dconf               # or this...
     expressvpn
     zip
     unzip
-    p7zip-rar
-    hyprshot            # screenshot tool
       #alt: flameshot
     #dnw: roccat-tools  # for Roccat (brand) keyboard (25.03.04)
 
@@ -180,21 +177,9 @@
     rofi-wayland  # program runner
     mpvpaper      # live wallpaper (commmand run in hyprland.conf on startup)
     hyprpaper
+    hyprshot
+    hyprcursor
     playerctl     # media control for shortcuts
     #dnw: hyprlock      # lock screen manager 
-
-
-    ##
-    #  Programming Languages
-    #  Given how flakes handel things I typically keep all this commented out :P
-    ##
-    #cargo
-    #gcc
-    #  gnumake
-    #  cmake
-    #  clang
-    #  lldb
-    #sqlite
-      #alt: postgresql
   ];
 }
