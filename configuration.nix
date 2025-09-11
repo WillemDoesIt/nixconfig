@@ -87,6 +87,10 @@
   # for evolution email (if it doesn't work remove this)
   services.gnome.gnome-keyring.enable = true;
 
+  systemd.tmpfiles.rules = [
+    "d /etc/nixos 0755 willemvz users -"
+  ];
+
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.willemvz = {
     isNormalUser = true;
