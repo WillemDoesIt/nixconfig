@@ -48,7 +48,7 @@ spinner() {
   while ps -p "$pid" > /dev/null; do
     local elapsed=$(( $(date +%s) - start_time ))
     printf "\r[ %2ds / %2ds (prev) ] %s" "$elapsed" "$prev_time" "${spinstr:$i:1}"
-    i=$(( (i + 1) % 4 ))
+    i=$(( (i + 1) % 3 ))
     sleep 0.1
   done
   local total_time=$(( $(date +%s) - start_time ))
