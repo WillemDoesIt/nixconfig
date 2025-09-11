@@ -30,8 +30,7 @@ fi
 
 sudo alejandra /etc/nixos/configuration.nix &>/dev/null
 
-git diff -U0 configuration.nix || true
-git diff -U0 packages.nix || true
+git diff -U0
 
 # load previous build time
 prev_time=0
