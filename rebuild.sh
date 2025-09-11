@@ -71,14 +71,16 @@ if ! wait $nixos_pid; then
   echo -n "Nothing committed due to "
   grep --color error "$log_file" | sort -u && false
 else
-  echo -e "\n\n\e[32mRebuild Done Successfully! ദ്ദി(˵ •̀ ᴗ - ˵ ) ✧\e[0m\n\n"
-  gen=$(sudo nixos-rebuild list-generations | grep current)
+  if ! git diff --quiet; then
+    echo -e "\n\n\e[32mRebuild Done Successfully! ദ്ദി(˵ •̀ ᴗ - ˵ ) ✧\e[0m\n\n"
+    gen=$(sudo nixos-rebuild list-generations | grep current)
 
-  if git commit -am "$gen" --quiet && git push --quiet; then
-    echo -e "\e[32m✔ Git committed + pushed\e[0m"
-    echo "   Generation: $gen"
-  else
-    echo -e "\e[31m✘ Git commit/push failed\e[0m"
+    if git commit -am "$gen" --quiet && git push --quiet; then
+      echo -e "\e[32m✔ Git committed + pushed\e[0m"
+      echo "   Generation: $gen"
+    else
+      echo -e "\e[31m✘ Git commit/push failed\e[0m"
+    fi
   fi
 fi
 
