@@ -87,7 +87,7 @@ else
   echo -e "\n\n\e[32mRebuild Done Successfully! ദ്ദി(˵ •̀ ᴗ - ˵ ) ✧\e[0m\n\n"
   echo "Git commit:"
   gen=$(sudo nixos-rebuild list-generations | grep current)
-  sudo git -C /etc/nixos commit -am "$gen" && sudo git -C /etc/nixos push
+  sudo git -C /etc/nixos commit -am "$gen" && git -C /etc/nixos push
 fi
 
 # syncw means edit after a successful rebuild
