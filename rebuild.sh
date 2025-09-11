@@ -78,7 +78,9 @@ else
   echo -e "\n\n\e[32mRebuild Done Successfully! ദ്ദി(˵ •̀ ᴗ - ˵ ) ✧\e[0m\n\n"
   git add -A
   git commit -m "$gen" --quiet || { echo -e "\e[31m✘ Commit failed\e[0m"; exit 1; }
-  git pull --rebase --quiet || { echo -e "\e[31m✘ Pull failed\e[0m"; exit 1; }
+  if ! git pull --rebase --quiet 2>/dev/null; then
+    echo -e "\e[31m✘ Pull failed\e[0m"
+  fi
   git push --quiet || { echo -e "\e[31m✘ Push failed\e[0m"; exit 1; }
   echo -e "\e[32m✔ Git committed + pushed\e[0m"
   echo "   Generation: $gen"
