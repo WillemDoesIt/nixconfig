@@ -48,7 +48,7 @@
     hyprcursor
     sageWithDoc
     wireshark
-    miktex
+    texlive.combined.scheme-full
 
     cargo
     rustc
