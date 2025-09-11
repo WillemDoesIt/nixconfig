@@ -73,7 +73,13 @@ if ! wait $nixos_pid; then
 else
   echo -e "\n\n\e[32mRebuild Done Successfully! ദ്ദി(˵ •̀ ᴗ - ˵ ) ✧\e[0m\n\n"
   gen=$(sudo nixos-rebuild list-generations | grep current)
-  git commit -am "$gen" && git push
+
+  if git commit -am "$gen" --quiet && git push --quiet; then
+    echo -e "\e[32m✔ Git committed + pushed\e[0m"
+    echo "   Generation: $gen"
+  else
+    echo -e "\e[31m✘ Git commit/push failed\e[0m"
+  fi
 fi
 
 if [[ "$mode" == "syncw" ]]; then
