@@ -94,6 +94,10 @@
     extraGroups = ["networkmanager" "wheel"];
   };
 
+  fonts.fonts = with pkgs; [
+    nerd-fonts.jetbrains-mono
+  ];
+
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
