@@ -9,6 +9,6 @@
 
   environment.systemPackages = with pkgs; [
     lxappearance
-    gnome.gnome-themes-extra
+    gnome-themes-extra
   ];
 }

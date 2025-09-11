@@ -51,7 +51,7 @@
   services.printing.enable = true;
 
   # Enable sound with pipewire.
-  hardware.pulseaudio.enable = false;
+  services.pulseaudio.enable = false;
   security.rtkit.enable = true;
   services.pipewire = {
     enable = true;
@@ -93,10 +93,6 @@
     description = "Willem Van Zwol";
     extraGroups = ["networkmanager" "wheel"];
   };
-
-  fonts.packages = with pkgs; [
-    (nerdfonts.override {fonts = ["JetBrainsMono"];})
-  ];
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;

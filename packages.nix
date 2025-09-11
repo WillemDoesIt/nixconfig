@@ -4,7 +4,7 @@
     # MINECRAFT STUFF
     (prismlauncher.override {
       # Add binary required by some mod
-      additionalPrograms = [ffmpeg];
+      additionalPrograms = [ pkgs.ffmpeg ];
   
       # Change Java runtimes available to Prism Launcher
       jdks = [
@@ -16,7 +16,7 @@
     })
 
     # this makes `re` a command that runs the rebuild script
-    (pkgs.writeShellScriptBin "re" ''
+    (writeShellScriptBin "re" ''
       bash /etc/nixos/rebuild "$@"
     '')
 
@@ -26,11 +26,9 @@
     #
     ##
     nushell         # alternative shell
-    sccache
     dust            # wintree for linux
     bat             # better `cat`
     gitui
-    porsmo          # pomodoro
     wiki-tui        # wikipedia tui
     nomacs
     gparted
@@ -39,8 +37,6 @@
     busybox 
     pavucontrol
     stockfish
-    en-croissant
-    nodejs_23
     gccgo14
     libgcc
     cl
@@ -52,6 +48,7 @@
     hyprcursor
     sageWithDoc
     wireshark
+    miktex
 
     cargo
     rustc
@@ -132,8 +129,8 @@
       #alt: protonmail-desktop  # save this for when you make a proton email
     evolution                   # email client evolution
       evolution-ews             # Required for Microsoft Exchange Web Services (EWS)
-      gnome.gnome-keyring       # Manages saved credentials
-      gnome.seahorse            # Optional, GUI for managing stored credentials
+      gnome-keyring       	# Manages saved credentials
+      seahorse                  # Optional, GUI for managing stored credentials
       libsoup
     #dnw: bottles-unwrapped            # ways to run microsoft stuff on linux
     wineWowPackages.waylandFull
@@ -205,8 +202,10 @@
     #  Fonts 
     #
     ##
-    jetbrains-mono # font
-    nerdfonts      # this may not work lmao
+    nerd-fonts.jetbrains-mono 
+    nerd-fonts._0xproto
+    nerd-fonts._3270
+    nerd-fonts.agave
     corefonts      # microsoft fonts not working.
     wineWowPackages.fonts
     vistafonts
