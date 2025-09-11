@@ -96,6 +96,9 @@
 
   fonts.fonts = with pkgs; [
     nerd-fonts.jetbrains-mono
+    corefonts
+    vistafonts
+    wineWowPackages.fonts
   ];
 
   # Allow unfree packages

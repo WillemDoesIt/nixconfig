@@ -17,7 +17,7 @@
 
     # this makes `re` a command that runs the rebuild script
     (writeShellScriptBin "re" ''
-      bash /etc/nixos/rebuild "$@"
+      bash /etc/nixos/rebuild.sh "$@"
     '')
 
 
