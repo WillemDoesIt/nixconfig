@@ -53,7 +53,7 @@ spinner() {
 
 [[ -f "$log_file" ]] || touch "$log_file"
 
-sudo nixos-rebuild switch &>"$log_file" &
+sudo nixos-rebuild switch --flake /etc/nixos#nixos&>"$log_file" &
 nixos_pid=$!
 
 echo -e "\n\033[1;33m-- TIP ------------------------------------\033[0m"
