@@ -22,8 +22,9 @@ function copyhist
     set with_cmd (contains -- "--with-cmd" $argv)
 
     if test $with_cmd
-        history | tail -n $count | sed 's/^[0-9]* //' | clip
+        history | tail -n $count | string trim --left --chars=0..9 | clip
     else
-        history | tail -n $count | tail -n1 | sed 's/^[0-9]* //' | clip
+        history | tail -n $count | tail -n1 | string trim --left --chars=0..9 | clip
     end
 end
+
