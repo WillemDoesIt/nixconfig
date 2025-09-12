@@ -63,7 +63,7 @@ echo -e "\033[1;33m-------------------------------------------\033[0m\n"
 spinner $nixos_pid
 
 if ! wait $nixos_pid; then
-  echo -e "\n\n\e[31mAw fuck. You fucked it. Your OS is on life support.\e[0m\n\n"
+  echo -e "\n\e[31mAw fuck. You fucked it. Your OS is on life support.\e[0m\n"
   echo -n "Nothing committed due to "
   grep --color error "$log_file" | sort -u || true
   exit 1
@@ -73,16 +73,16 @@ fi
 gen=$(sudo nixos-rebuild list-generations | grep current)
 
 if git diff --quiet; then
-  echo -e "\e[32m✔ Nothing to commit (already up to date)\e[0m"
+  echo -e "\e[32mNothing to commit (already up to date) ✔\e[0m"
 else
   echo -e "\n\n\e[32mRebuild Done Successfully! ദ്ദി(˵ •̀ ᴗ - ˵ ) ✧\e[0m\n\n"
   git add -A
-  git commit -m "$gen" --quiet || { echo -e "\e[31m✘ Commit failed\e[0m"; exit 1; }
+  git commit -m "$gen" --quiet || { echo -e "\e[31mCommit failed ✘\e[0m"; exit 1; }
   if ! git pull --rebase --quiet 2>/dev/null; then
-    echo -e "\e[31m✘ Pull failed\e[0m"
+    echo -e "\e[31mPull failed ✘\e[0m"
   fi
-  git push --quiet || { echo -e "\e[31m✘ Push failed\e[0m"; exit 1; }
-  echo -e "\e[32m✔ Git committed + pushed\e[0m"
+  git push --quiet || { echo -e "\e[31mPush failed ✘\e[0m"; exit 1; }
+  echo -e "\e[32mGit committed + pushed ✔\e[0m"
   echo "   Generation: $gen"
 fi
 
