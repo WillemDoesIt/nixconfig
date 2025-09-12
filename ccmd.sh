@@ -1,9 +1,9 @@
 #!/usr/bin/env fish
 
 function clip
-    if test "$XDG_SESSION_TYPE" = "wayland"
+    if test "$XDG_SESSION_TYPE" = "wayland" -a (type -q wl-copy)
         wl-copy
-    else if test "$XDG_SESSION_TYPE" = "x11"
+    else if test "$XDG_SESSION_TYPE" = "x11" -a (type -q xclip)
         xclip -selection clipboard
     else if type -q wl-copy
         wl-copy
@@ -18,12 +18,14 @@ function clip
 end
 
 function copyhist
-    set count (or $argv[1] 1)
+    set count (if test (count $argv) -ge 1; echo $argv[1]; else; echo 1; end)
     set with_cmd (contains -- "--with-cmd" $argv)
+
     if test $with_cmd
         history | head -n $count | clip
     else
         history | head -n $count | tail -n1 | clip
     end
 end
+
 
