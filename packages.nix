@@ -20,9 +20,14 @@
       bash /etc/nixos/rebuild.sh "$@"
     '')
 
-    # this makes `texpdf` a command that runs the texpdf script
+    # this makes `texpdf` a command that converts tex files to pdf 
     (writeShellScriptBin "texpdf" ''
       bash /etc/nixos/texpdf.sh "$@"
+    '')
+    
+    # this makes `ccmd` a command that clipboards prev command
+    (writeShellScriptBin "ccmd" ''
+      bash /etc/nixos/ccmd.sh "$@"
     '')
 
     ##
@@ -175,6 +180,7 @@
     hyprpaper
     hyprshot
     hyprcursor
+    wl-clipboard
     playerctl     # media control for shortcuts
     #dnw: hyprlock      # lock screen manager 
   ];
