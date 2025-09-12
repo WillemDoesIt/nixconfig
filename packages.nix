@@ -41,9 +41,6 @@
     busybox 
     pavucontrol
     stockfish
-    gccgo14
-    libgcc
-    cl
     blueberry
     networkmanager
     cudaPackages.cudatoolkit
@@ -67,6 +64,7 @@
     btop
     kitty fish            # terminal and shell
     ollama
+    librechat
     ranger                # terminal file manager
       #alt: nnn           # even simpler
     nemo                  # gui file manager
