@@ -17,14 +17,18 @@ function clip
     end
 end
 
+
 function copyhist
     set count (if test (count $argv) -ge 1; echo $argv[1]; else; echo 1; end)
     set with_cmd (contains -- "--with-cmd" $argv)
 
     if test $with_cmd
-        history | tail -n $count | string trim --left --chars=0..9 | clip
+        for line in (history | tail -n $count | string trim --left --chars=0..9)
+            clip <<< $line
+        end
     else
-        history | tail -n $count | tail -n1 | string trim --left --chars=0..9 | clip
+        set last (history | tail -n $count | tail -n1 | string trim --left --chars=0..9)
+        clip <<< $last
     end
 end
 
