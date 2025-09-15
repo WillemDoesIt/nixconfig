@@ -17,17 +17,17 @@
 
     # this makes `re` a command that runs the rebuild script
     (writeShellScriptBin "re" ''
-      bash /etc/nixos/rebuild.sh "$@"
+      bash /etc/nixos/commands/rebuild.sh "$@"
     '')
 
     # this makes `texpdf` a command that converts tex files to pdf 
     (writeShellScriptBin "texpdf" ''
-      bash /etc/nixos/texpdf.sh "$@"
+      bash /etc/nixos/commands/texpdf.sh "$@"
     '')
     
     # this makes `ccmd` a command that clipboards prev command
     (writeShellScriptBin "ccmd" ''
-      bash /etc/nixos/ccmd.sh "$@"
+      bash /etc/nixos/commands/ccmd.sh "$@"
     '')
 
     ##
@@ -70,7 +70,7 @@
     kitty fish            # terminal and shell
     ollama
     librechat
-    ranger                # terminal file manager
+    lf # ranger                # terminal file manager
       #alt: nnn           # even simpler
     nemo                  # gui file manager
       #alt: pcmanfm
@@ -167,6 +167,7 @@
     # uselesss terminall stuffs
     neofetch
     pipes
+    cowsay
 
     ##
     #  Hyprland dependencies and daemons
