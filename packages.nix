@@ -52,7 +52,7 @@
     cbonsai
     xdg-user-dirs
     sageWithDoc
-    wireshark
+    wireshark-qt
     texlive.combined.scheme-full
 
     cargo
