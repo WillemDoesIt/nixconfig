@@ -90,10 +90,10 @@ fi
 
 
 # ---- nix cleanup (append after successful rebuild) ----
-MAX_DAYS=50        # drop gens older than this
-MAX_GENS=10        # keep only this many system generations
-MAX_STORE_GIB=40   # if store > this, trigger size-based GC
-TARGET_STORE_GIB=35 # GC until store ≲ this
+MAX_DAYS=50           # drop gens older than this
+MAX_GENS=10           # keep only this many system generations
+MAX_STORE_GIB=70      # if store > this, trigger size-based GC
+TARGET_STORE_GIB=35   # GC until store ≲ this
 
 # get store size (bytes) and GiB (integer)
 store_bytes=$(du -sb /nix/store | cut -f1)
