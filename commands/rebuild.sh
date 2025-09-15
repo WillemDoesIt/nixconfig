@@ -69,7 +69,7 @@ if ! wait $nixos_pid; then
   exit 1
 fi
 
-# commit + push
+# --- git commit + push ---
 gen=$(sudo nixos-rebuild list-generations | grep current)
 
 if git diff --quiet /etc/nixos; then
@@ -87,3 +87,27 @@ else
 fi
 
 [[ "$mode" == "syncw" ]] && sudo -E nvim packages.nix
+
+
+# ---- nix cleanup (append after successful rebuild) ----
+MAX_DAYS=50        # drop gens older than this
+MAX_GENS=10        # keep only this many system generations
+MAX_STORE_GIB=40   # if store > this, trigger size-based GC
+TARGET_STORE_GIB=35# GC until store ≲ this
+
+# get store size (bytes) and GiB (integer)
+store_bytes=$(du -sb /nix/store | cut -f1)
+store_gib=$(( store_bytes / 1024 / 1024 / 1024 ))
+
+# prune by age (system + user garbage will be considered by GC)
+sudo nix-collect-garbage --delete-older-than "${MAX_DAYS}d"
+
+# prune system profile generations (requires root)
+sudo nix-env --profile /nix/var/nix/profiles/system --delete-generations +${MAX_GENS} || true
+
+# if store is big, ask nix to free the required bytes only
+if [ "$store_gib" -gt "$MAX_STORE_GIB" ]; then
+  need_bytes=$(( store_bytes - TARGET_STORE_GIB * 1024 * 1024 * 1024 ))
+  echo "Nix store ${store_gib}GiB > ${MAX_STORE_GIB}GiB — requesting GC to free ~ $(( need_bytes / 1024 / 1024 / 1024 )) GiB"
+  sudo nix store gc --max-freed "${need_bytes}"
+fi
