@@ -167,7 +167,6 @@
     # uselesss terminall stuffs
     neofetch
     pipes
-    cowsay
 
     ##
     #  Hyprland dependencies and daemons
