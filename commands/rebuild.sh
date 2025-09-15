@@ -109,5 +109,5 @@ sudo nix-env --profile /nix/var/nix/profiles/system --delete-generations +${MAX_
 if [ "$store_gib" -gt "$MAX_STORE_GIB" ]; then
   need_bytes=$(( store_bytes - TARGET_STORE_GIB * 1024 * 1024 * 1024 ))
   echo "Nix store ${store_gib}GiB > ${MAX_STORE_GIB}GiB — requesting GC to free ~ $(( need_bytes / 1024 / 1024 / 1024 )) GiB"
-  sudo nix store gc --max-freed "${need_bytes}"
+  sudo nix store gc --max "${need_bytes}"
 fi
