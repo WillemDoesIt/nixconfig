@@ -37,11 +37,11 @@ prev_time=$(<"$time_file" 2>/dev/null || echo 0)
 
 
 cat <<'EOF'
-_ _  _      ___  ___    ___       _         _  _    _  _                    
+ _ _  _      ___  ___    ___       _         _  _    _  _                    
 | \ |<_>__  | . |/ __>  | . \ ___ | |_  _ _ <_>| | _| |<_>._ _  ___          
 |   || |\ \/| | |\__ \  |   // ._>| . \| | || || |/ . || || ' |/ . | _  _  _ 
 |_\_||_|/\_\`___'<___/  |_\_\\___.|___/`___||_||_|\___||_||_|_|\_. |<_><_><_>
-                                                             <___'         
+                                                               <___'         
 EOF
 
 cd "$origin"
@@ -80,19 +80,20 @@ fi
 # --- git commit + push ---
 gen=$(sudo nixos-rebuild list-generations | grep current)
 
-if git diff --quiet /etc/nixos; then
+if git -C /etc/nixos diff --quiet; then
   echo -e "\e[32mNothing to commit (already up to date) ✔\e[0m"
 else
   echo -e "\n\n\e[32mRebuild Done Successfully! ദ്ദി(˵ •̀ ᴗ - ˵ ) ✧\e[0m\n\n"
-  git add -A
-  git commit -m "$gen" --quiet || { echo -e "\e[31mCommit failed ✘\e[0m"; exit 1; }
-  if ! git pull --rebase --quiet 2>/dev/null; then
+  git -C /etc/nixos add -A
+  git -C /etc/nixos commit -m "$gen" --quiet || { echo -e "\e[31mCommit failed ✘\e[0m"; exit 1; }
+  if ! git -C /etc/nixos pull --rebase --quiet 2>/dev/null; then
     echo -e "\e[31mPull failed ✘\e[0m"
   fi
-  git push --quiet || { echo -e "\e[31mPush failed ✘\e[0m"; exit 1; }
+  git -C /etc/nixos push --quiet || { echo -e "\e[31mPush failed ✘\e[0m"; exit 1; }
   echo -e "\e[32mGit committed + pushed ✔\e[0m"
   echo "   Generation: $gen"
 fi
+
 
 [[ "$mode" == "syncw" ]] && sudo -E nvim packages.nix
 
