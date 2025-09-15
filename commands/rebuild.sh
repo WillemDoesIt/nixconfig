@@ -99,15 +99,19 @@ TARGET_STORE_GIB=35   # GC until store ≲ this
 store_bytes=$(du -sb /nix/store | cut -f1)
 store_gib=$(( store_bytes / 1024 / 1024 / 1024 ))
 
-# prune by age (system + user garbage will be considered by GC)
-sudo nix-collect-garbage --delete-older-than "${MAX_DAYS}d"
+echo "→ Nix cleanup..."
+gc_log=$(mktemp)
 
-# prune system profile generations (requires root)
-sudo nix-env --profile /nix/var/nix/profiles/system --delete-generations +${MAX_GENS} || true
+sudo nix-collect-garbage --delete-older-than "${MAX_DAYS}d" &>>"$gc_log"
+sudo nix-env --profile /nix/var/nix/profiles/system --delete-generations +${MAX_GENS} &>>"$gc_log" || true
 
-# if store is big, ask nix to free the required bytes only
 if [ "$store_gib" -gt "$MAX_STORE_GIB" ]; then
   need_bytes=$(( store_bytes - TARGET_STORE_GIB * 1024 * 1024 * 1024 ))
-  echo "Nix store ${store_gib}GiB > ${MAX_STORE_GIB}GiB — requesting GC to free ~ $(( need_bytes / 1024 / 1024 / 1024 )) GiB"
-  sudo nix store gc --max "${need_bytes}"
+  sudo nix store gc --max "${need_bytes}" &>>"$gc_log"
+  echo "   Store ${store_gib}GiB > ${MAX_STORE_GIB}GiB → requested GC (~$(( need_bytes/1024/1024/1024 )) GiB)"
+else
+  echo "   Store ${store_gib}GiB within limit (≤${MAX_STORE_GIB}GiB)"
 fi
+
+rm -f "$gc_log"
+
