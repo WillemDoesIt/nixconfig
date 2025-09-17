@@ -80,7 +80,7 @@ fi
 # --- git commit + push ---
 gen=$(sudo nixos-rebuild list-generations | grep current)
 
-if git -C /etc/nixos diff --quiet; then
+if git -C /etc/nixos diff --quiet && git -C /etc/nixos ls-files --others --exclude-standard | grep -q .; then
   echo -e "\e[32mNothing to commit (already up to date) ✔\e[0m"
 else
   echo -e "\n\n\e[32mRebuild Done Successfully! ദ്ദി(˵ •̀ ᴗ - ˵ ) ✧\e[0m\n\n"
