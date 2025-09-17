@@ -1,7 +1,7 @@
 # My Nixos Config
 I am daily driving this configuration as of the latest commit.
 
-!> [!WARNING]
+> [!WARNING]
 > I may have made some mistakes in my config, I have used Nix for well over a year, but still know little about the language or good practices. Specifically the setup hasn't been battle tested yet, don't just blindly run my bash!
 
 ### Features:
