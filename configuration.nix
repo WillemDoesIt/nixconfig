@@ -98,6 +98,10 @@
     extraGroups = ["networkmanager" "wheel"];
   };
 
+  networking.extraHosts = ''
+    10.200.1.1 power-puff-praise.whitcloud.org
+  '';
+
   fonts.fonts = with pkgs; [
     nerd-fonts.jetbrains-mono
     corefonts
