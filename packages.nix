@@ -61,6 +61,7 @@
     cargo-info 
     bacon
     sccache
+    miniserve
 
     ##
     #  General
