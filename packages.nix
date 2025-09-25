@@ -68,7 +68,7 @@
     #  General
     #
     ##
-    btop
+    btop-cuda
     kitty fish            # terminal and shell
     ollama
     librechat
