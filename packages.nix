@@ -169,6 +169,10 @@
     # uselesss terminall stuffs
     neofetch
     pipes
+    lolcat
+    cowsay
+    zsh
+    autojump
 
     ##
     #  Hyprland dependencies and daemons
