@@ -93,7 +93,6 @@
     audacity 
     transmission_4-qt     # torrent engine
       #alt: qbittorrent-nox
-    ollama
     vlc                   # media viewer
       #alt: mpv
     
