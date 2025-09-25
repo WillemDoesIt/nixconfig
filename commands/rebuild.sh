@@ -6,12 +6,43 @@ time_file="$HOME/Programs/nixscripts/nixos-rebuild-time.txt"
 log_file="$HOME/Programs/nixscripts/nixos-switch.log"
 
 mode="default"
-case "${1:-}" in
-  -sync)  mode="sync" ;;
-  -syncw) mode="syncw" ;;
-esac
+do_gc=false
+do_undo=false
+
+show_help() {
+  cat <<EOF
+Usage: $(basename "$0") [OPTIONS]
+
+Options:
+  -sync        Skip edit, rebuild only if repo changed
+  -syncw       Like -sync, but open packages.nix afterward
+  -gc          Run Nix cleanup after rebuild
+  -undo        Revert all changes, reset to previous commit
+  -h, --help   Show this help message
+EOF
+}
+
+while [[ $# -gt 0 ]]; do
+  case "$1" in
+    -sync)  mode="sync" ;;
+    -syncw) mode="syncw" ;;
+    -gc)    do_gc=true ;;
+    -undo)  do_undo=true ;;
+    -h|--help) show_help; exit 0 ;;
+    *) echo "Unknown flag: $1"; exit 1 ;;
+  esac
+  shift
+done
+
+
 
 cd /etc/nixos
+
+if [ "$do_undo" = true ]; then
+  echo "Reverting all changes and resetting to previous commit..."
+  git reset --hard HEAD~1
+  exit 0
+fi
 
 # fast path: skip rebuild if sync and nothing changed
 if [[ "$mode" =~ sync ]]; then
@@ -38,10 +69,10 @@ prev_time=$(<"$time_file" 2>/dev/null || echo 0)
 
 cat <<'EOF'
  _ _  _      ___  ___    ___       _         _  _    _  _                    
-| \ |<_>__  | . |/ __>  | . \ ___ | |_  _ _ <_>| | _| |<_>._ _  ___          
-|   || |\ \/| | |\__ \  |   // ._>| . \| | || || |/ . || || ' |/ . | _  _  _ 
-|_\_||_|/\_\`___'<___/  |_\_\\___.|___/`___||_||_|\___||_||_|_|\_. |<_><_><_>
-                                                               <___'         
+| \ |[_]__  | . |/ __]  | . \ ___ | |_  _ _ [_]| | _| |[_]._ _  ___          
+|   || |\ \/| | |\__ \  |   // ._]| . \| | || || |/ . || || ' |/ . | _  _  _ 
+|_\_||_|/\_\`___'[___/  |_\_\\___.|___/`___||_||_|\___||_||_|_|\_. |[_][_][_]
+                                                               [___'         
 EOF
 
 cd "$origin"
@@ -71,7 +102,7 @@ echo -e "\033[1;33m-------------------------------------------\033[0m\n"
 spinner $nixos_pid
 
 if ! wait $nixos_pid; then
-  echo -e "\n\e[31mAw fuck. You fucked it. Your OS is on life support.\e[0m\n"
+  echo -e "\n\e[31m !!! REBUILD FAILED !!! \e[0m\n"
   echo -n "Nothing committed due to "
   grep --color error "$log_file" | sort -u || true
   exit 1
@@ -80,7 +111,7 @@ fi
 # --- git commit + push ---
 gen=$(sudo nixos-rebuild list-generations | grep current)
 
-if git -C /etc/nixos diff --quiet && git -C /etc/nixos ls-files --others --exclude-standard | grep -q .; then
+if git -C /etc/nixos diff --quiet && ! git -C /etc/nixos ls-files --others --exclude-standard | grep -q .; then
   echo -e "\e[32mNothing to commit (already up to date) ✔\e[0m"
 else
   echo -e "\n\n\e[32mRebuild Done Successfully! ദ്ദി(˵ •̀ ᴗ - ˵ ) ✧\e[0m\n\n"
@@ -98,29 +129,31 @@ fi
 [[ "$mode" == "syncw" ]] && sudo -E nvim packages.nix
 
 
-# ---- nix cleanup (append after successful rebuild) ----
-MAX_DAYS=50           # drop gens older than this
-MAX_GENS=10           # keep only this many system generations
-MAX_STORE_GIB=70      # if store > this, trigger size-based GC
-TARGET_STORE_GIB=35   # GC until store ≲ this
-
-# get store size (bytes) and GiB (integer)
-store_bytes=$(du -sb /nix/store | cut -f1)
-store_gib=$(( store_bytes / 1024 / 1024 / 1024 ))
-
-echo "→ Nix cleanup..."
-gc_log=$(mktemp)
-
-sudo nix-collect-garbage --delete-older-than "${MAX_DAYS}d" &>>"$gc_log"
-sudo nix-env --profile /nix/var/nix/profiles/system --delete-generations +${MAX_GENS} &>>"$gc_log" || true
-
-if [ "$store_gib" -gt "$MAX_STORE_GIB" ]; then
-  need_bytes=$(( store_bytes - TARGET_STORE_GIB * 1024 * 1024 * 1024 ))
-  sudo nix store gc --max "${need_bytes}" &>>"$gc_log"
-  echo "   Store ${store_gib}GiB > ${MAX_STORE_GIB}GiB → requested GC (~$(( need_bytes/1024/1024/1024 )) GiB)"
-else
-  echo "   Store ${store_gib}GiB within limit (≤${MAX_STORE_GIB}GiB)"
+if [ "$do_gc" = true ]; then
+  # ---- nix cleanup (append after successful rebuild) ----
+  MAX_DAYS=50           # drop gens older than this
+  MAX_GENS=10           # keep only this many system generations
+  MAX_STORE_GIB=70      # if store > this, trigger size-based GC
+  TARGET_STORE_GIB=35   # GC until store ≲ this
+  
+  # get store size (bytes) and GiB (integer)
+  store_bytes=$(du -sb /nix/store | cut -f1)
+  store_gib=$(( store_bytes / 1024 / 1024 / 1024 ))
+  
+  echo "→ Nix cleanup..."
+  gc_log=$(mktemp)
+  
+  sudo nix-collect-garbage --delete-older-than "${MAX_DAYS}d" &>>"$gc_log"
+  sudo nix-env --profile /nix/var/nix/profiles/system --delete-generations +${MAX_GENS} &>>"$gc_log" || true
+  
+  if [ "$store_gib" -gt "$MAX_STORE_GIB" ]; then
+    need_bytes=$(( store_bytes - TARGET_STORE_GIB * 1024 * 1024 * 1024 ))
+    sudo nix store gc --max "${need_bytes}" &>>"$gc_log"
+    echo "   Store ${store_gib}GiB > ${MAX_STORE_GIB}GiB → requested GC (~$(( need_bytes/1024/1024/1024 )) GiB)"
+  else
+    echo "   Store ${store_gib}GiB within limit (≤${MAX_STORE_GIB}GiB)"
+  fi
+  
+  rm -f "$gc_log"
+  
 fi
-
-rm -f "$gc_log"
-
