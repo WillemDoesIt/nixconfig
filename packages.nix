@@ -61,7 +61,6 @@
     bacon
     sccache
     miniserve
-    ladybird
 
     ##
     #  General

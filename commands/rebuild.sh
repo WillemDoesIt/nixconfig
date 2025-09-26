@@ -69,9 +69,7 @@ find . -type f -name "*.nix" -exec sudo sh -c 'alejandra {} &>/dev/null' \;
 # show staged diff
 # alt: git diff -U0
 # alt: git difftool --no-prompt --extcmd='bat --diff'
-ree -fi dir1 | grep -v \.git > dir1.txt
-tree -fi dir2 | grep -v \.git > dir2.txt
-sdiff -s dir1 dir2
+git diff --word-diff=color
 
 
 # previous build time
