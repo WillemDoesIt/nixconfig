@@ -14,17 +14,18 @@ show_help() {
 Usage: $(basename "$0") [OPTIONS]
 
 Options:
-  -sync        Skip edit, rebuild only if repo changed
-  -syncw       Like -sync, but open packages.nix afterward
-  -gc          Run Nix cleanup after rebuild
-  -undo        Revert all changes, reset to previous commit
-  -h, --help   Show this help message
+  -sync           Skip edit, rebuild only if repo changed
+  -syncw          Like -sync, but open packages.nix afterward
+  -gc             Run Nix cleanup after rebuild
+  -undo           Revert all changes, reset to previous commit
+  -h, --help      Show this help message
+  -v, --versoin   Show the version
 EOF
 }
 
 show_version() {
   cat <<EOF
-$(basename "$0") version: 1.0
+$(basename "$0") version: 1.0.1
 EOF
 }
 
@@ -40,8 +41,6 @@ while [[ $# -gt 0 ]]; do
   esac
   shift
 done
-
-
 
 cd /etc/nixos
 
@@ -65,10 +64,11 @@ fi
 [[ "$mode" != "sync" ]] && sudo -E nvim packages.nix
 
 # format config
-sudo alejandra /etc/nixos/configuration.nix &>/dev/null
+find . -type f -name "*.nix" -exec sudo sh -c 'alejandra {} &>/dev/null' \;
 
 # show staged diff
-git diff -U0
+# alt: git diff -U0
+gitk --all
 
 # previous build time
 prev_time=$(<"$time_file" 2>/dev/null || echo 0)
