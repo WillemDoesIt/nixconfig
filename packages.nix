@@ -164,7 +164,6 @@
     neofetch
     pipes
     lolcat
-    zsh
     cowsay
     autojump
 
