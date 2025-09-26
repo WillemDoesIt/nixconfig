@@ -25,7 +25,7 @@ EOF
 
 show_version() {
   cat <<EOF
-$(basename "$0") version: 1.0.1
+$(basename "$0") version: 1.1.0
 EOF
 }
 
