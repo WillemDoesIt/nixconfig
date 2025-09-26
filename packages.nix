@@ -166,7 +166,6 @@
     pipes
     lolcat
     cowsay
-    zsh
     autojump
 
     ##
