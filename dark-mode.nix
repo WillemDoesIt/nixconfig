@@ -1,5 +1,8 @@
-{ config, pkgs, ... }: {
-
+{
+  config,
+  pkgs,
+  ...
+}: {
   # This may be home-manager nix, If so consider this user instructions:
   # Add this text manually to the `~/.config/gtk-3.0/settings.ini`
   environment.etc."gtk-3.0/settings.ini".text = ''

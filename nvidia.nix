@@ -1,4 +1,4 @@
-{ config, ... }: {
+{config, ...}: {
   # NVIDIA STUFF https://nixos.wiki/wiki/Nvidia
 
   # Enable OpenGL

@@ -19,7 +19,7 @@ Options:
   -gc             Run Nix cleanup after rebuild
   -undo           Revert all changes, reset to previous commit
   -h, --help      Show this help message
-  -v, --versoin   Show the version
+  -v, --version   Show the version
 EOF
 }
 
@@ -68,7 +68,7 @@ find . -type f -name "*.nix" -exec sudo sh -c 'alejandra {} &>/dev/null' \;
 
 # show staged diff
 # alt: git diff -U0
-gitk --all
+git difftool --no-prompt --extcmd='bat --diff'
 
 # previous build time
 prev_time=$(<"$time_file" 2>/dev/null || echo 0)
