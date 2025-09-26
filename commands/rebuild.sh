@@ -22,6 +22,12 @@ Options:
 EOF
 }
 
+show_version() {
+  cat <<EOF
+$(basename "$0") version: 1.0
+EOF
+}
+
 while [[ $# -gt 0 ]]; do
   case "$1" in
     -sync)  mode="sync" ;;
@@ -29,6 +35,7 @@ while [[ $# -gt 0 ]]; do
     -gc)    do_gc=true ;;
     -undo)  do_undo=true ;;
     -h|--help) show_help; exit 0 ;;
+    -v|--version) show_version; exit 0 ;;
     *) echo "Unknown flag: $1"; exit 1 ;;
   esac
   shift
