@@ -69,7 +69,7 @@ find . -type f -name "*.nix" -exec sudo sh -c 'alejandra {} &>/dev/null' \;
 # show staged diff
 # alt: git diff -U0
 # alt: git difftool --no-prompt --extcmd='bat --diff'
-git diff --word-diff=color
+git diff --stat
 
 
 # previous build time
