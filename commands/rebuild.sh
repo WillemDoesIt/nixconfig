@@ -68,8 +68,8 @@ find . -type f -name "*.nix" -exec sudo sh -c 'alejandra {} &>/dev/null' \;
 
 # show staged diff
 # alt: git diff -U0
-# alt: git difftool --no-prompt --extcmd='bat --diff'
-git difftool --no-prompt --extcmd='bat --diff --paging=never --color=always | tail -n +5'
+# alt: git difftool --no-prompt --extcmd='bat --diff --paging=never --color=always | tail -n +5'
+git difftool --no-prompt --extcmd='bash -c "bat --diff --paging=never --color=always \"$LOCAL\" \"$REMOTE\" | tail -n +5"'
 
 
 # previous build time
