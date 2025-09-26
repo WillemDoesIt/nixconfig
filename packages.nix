@@ -44,7 +44,6 @@
     docui
     busybox
     pavucontrol
-    stockfish
     blueberry
     networkmanager
     cudaPackages.cudatoolkit
