@@ -68,7 +68,11 @@ find . -type f -name "*.nix" -exec sudo sh -c 'alejandra {} &>/dev/null' \;
 
 # show staged diff
 # alt: git diff -U0
-git difftool --no-prompt --extcmd='bat --diff'
+# alt: git difftool --no-prompt --extcmd='bat --diff'
+ree -fi dir1 | grep -v \.git > dir1.txt
+tree -fi dir2 | grep -v \.git > dir2.txt
+sdiff -s dir1 dir2
+
 
 # previous build time
 prev_time=$(<"$time_file" 2>/dev/null || echo 0)
