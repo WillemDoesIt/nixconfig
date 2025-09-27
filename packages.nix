@@ -145,6 +145,7 @@
     tetrio-desktop
     lutris
     steam
+    wivrn
 
     ##
     #  Utils
