@@ -84,6 +84,7 @@
     ncspot # terminal spotify
     spotify
     audacious # gui music
+    musikcube
     #alt: lollypop
     beeper
     element-desktop
