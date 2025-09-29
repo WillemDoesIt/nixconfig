@@ -19,17 +19,7 @@ $(basename "$0") version: 1.0.0
 EOF
 }
 
-while [[ $# -gt 0 ]]; do
-  case "$1" in
-    -h|--help) show_help; exit 0 ;;
-    -v|--version) show_version; exit 0 ;;
-    *) ;;
-  esac
-  shift
-done
-
-query="$1"
-
+main() {
 # Build list of results (cleaned)
 results=$(nix search nixpkgs "$query" 2>/dev/null \
     | awk -v q="$query" '
@@ -57,3 +47,13 @@ if [ -n "$chosen" ]; then
     nix-shell -p "$pkg"
 fi
 
+}
+
+while [[ $# -gt 0 ]]; do
+  case "$1" in
+    -h|--help) show_help; exit 0 ;;
+    -v|--version) show_version; exit 0 ;;
+    *) query="$1"&&main;;
+  esac
+  shift
+done
