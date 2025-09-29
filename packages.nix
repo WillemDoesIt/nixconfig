@@ -177,6 +177,8 @@
     dunst # notification daemon
     libnotify
     rofi-wayland # program runner
+    rofi-bluetooth
+    rofi-network-manager
     mpvpaper # live wallpaper (commmand run in hyprland.conf on startup)
     hyprpaper
     hyprshot
