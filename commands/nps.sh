@@ -28,7 +28,7 @@ while [[ $# -gt 0 ]]; do
   shift
 done
 
-query="$2"
+query="$1"
 if [ -z "$query" ]; then
     echo "Usage: $0 <search-term>"
     exit 1
