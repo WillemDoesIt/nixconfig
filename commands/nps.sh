@@ -23,12 +23,12 @@ while [[ $# -gt 0 ]]; do
   case "$1" in
     -h|--help) show_help; exit 0 ;;
     -v|--version) show_version; exit 0 ;;
-    *) echo "Unknown flag: $1"; exit 1 ;;
+    *) ;;
   esac
   shift
 done
 
-query="$1"
+query="$2"
 if [ -z "$query" ]; then
     echo "Usage: $0 <search-term>"
     exit 1
