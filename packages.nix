@@ -78,7 +78,6 @@
     discord
     obs-studio
     firefox
-    brave
     librewolf
     sidequest
     ncspot # terminal spotify
