@@ -29,10 +29,6 @@ while [[ $# -gt 0 ]]; do
 done
 
 query="$1"
-if [ -z "$query" ]; then
-    echo "Usage: $0 <search-term>"
-    exit 1
-fi
 
 # Build list of results (cleaned)
 results=$(nix search nixpkgs "$query" 2>/dev/null \
