@@ -30,6 +30,11 @@
       bash /etc/nixos/commands/ccmd.sh "$@"
     '')
 
+    # this makes `nps` a command that lets you search nixpkgs and install to the shell
+    (writeShellScriptBin "nps" ''
+      bash /etc/nixos/commands/nps.sh "$@"
+    '')
+
     ##
     #  TEMP
     #
