@@ -18,6 +18,7 @@
     (writeShellScriptBin "re" ''
       bash /etc/nixos/commands/rebuild.sh "$@"
     '')
+    fzf
 
     # this makes `texpdf` a command that converts tex files to pdf
     (writeShellScriptBin "texpdf" ''
