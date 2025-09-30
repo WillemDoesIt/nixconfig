@@ -1,0 +1,81 @@
+[26211:26211:0914/235522.761566:ERROR:dbus/object_proxy.cc:590] Failed to call method: org.kde.KWallet.isEnabled: object_path= /modules/kwalletd6: org.freedesktop.DBus.Error.ServiceUnknown: The name org.kde.kwalletd6 was not provided by any .service files
+[26211:26211:0914/235522.761595:ERROR:components/os_crypt/sync/kwallet_dbus.cc:113] Error contacting kwalletd6 (isEnabled)
+[26211:26211:0914/235522.762441:ERROR:dbus/object_proxy.cc:590] Failed to call method: org.kde.KLauncher.start_service_by_desktop_name: object_path= /KLauncher: org.freedesktop.DBus.Error.ServiceUnknown: The name org.kde.klauncher was not provided by any .service files
+[26211:26211:0914/235522.762447:ERROR:components/os_crypt/sync/kwallet_dbus.cc:82] Error contacting klauncher to start kwalletd6
+[26211:26211:0914/235522.763268:ERROR:dbus/object_proxy.cc:590] Failed to call method: org.kde.KWallet.close: object_path= /modules/kwalletd6: org.freedesktop.DBus.Error.ServiceUnknown: The name org.kde.kwalletd6 was not provided by any .service files
+[26211:26211:0914/235522.763274:ERROR:components/os_crypt/sync/kwallet_dbus.cc:408] Error contacting kwalletd6 (close)
+[26211:26211:0914/235522.764541:ERROR:dbus/object_proxy.cc:590] Failed to call method: org.kde.KWallet.isEnabled: object_path= /modules/kwalletd5: org.freedesktop.DBus.Error.ServiceUnknown: The name org.kde.kwalletd5 was not provided by any .service files
+[26211:26211:0914/235522.764547:ERROR:components/os_crypt/sync/kwallet_dbus.cc:113] Error contacting kwalletd5 (isEnabled)
+[26211:26211:0914/235522.765333:ERROR:dbus/object_proxy.cc:590] Failed to call method: org.kde.KLauncher.start_service_by_desktop_name: object_path= /KLauncher: org.freedesktop.DBus.Error.ServiceUnknown: The name org.kde.klauncher was not provided by any .service files
+[26211:26211:0914/235522.765338:ERROR:components/os_crypt/sync/kwallet_dbus.cc:82] Error contacting klauncher to start kwalletd5
+[26211:26211:0914/235522.766111:ERROR:dbus/object_proxy.cc:590] Failed to call method: org.kde.KWallet.close: object_path= /modules/kwalletd5: org.freedesktop.DBus.Error.ServiceUnknown: The name org.kde.kwalletd5 was not provided by any .service files
+[26211:26211:0914/235522.766115:ERROR:components/os_crypt/sync/kwallet_dbus.cc:408] Error contacting kwalletd5 (close)
+[26211:26211:0914/235522.767245:ERROR:dbus/object_proxy.cc:590] Failed to call method: org.kde.KWallet.isEnabled: object_path= /modules/kwalletd: org.freedesktop.DBus.Error.ServiceUnknown: The name org.kde.kwalletd was not provided by any .service files
+[26211:26211:0914/235522.767250:ERROR:components/os_crypt/sync/kwallet_dbus.cc:113] Error contacting kwalletd (isEnabled)
+[26211:26211:0914/235522.768030:ERROR:dbus/object_proxy.cc:590] Failed to call method: org.kde.KLauncher.start_service_by_desktop_name: object_path= /KLauncher: org.freedesktop.DBus.Error.ServiceUnknown: The name org.kde.klauncher was not provided by any .service files
+[26211:26211:0914/235522.768034:ERROR:components/os_crypt/sync/kwallet_dbus.cc:82] Error contacting klauncher to start kwalletd
+[26211:26211:0914/235522.768794:ERROR:dbus/object_proxy.cc:590] Failed to call method: org.kde.KWallet.close: object_path= /modules/kwalletd: org.freedesktop.DBus.Error.ServiceUnknown: The name org.kde.kwalletd was not provided by any .service files
+[26211:26211:0914/235522.768798:ERROR:components/os_crypt/sync/kwallet_dbus.cc:408] Error contacting kwalletd (close)
+[26211:26386:0914/235522.944867:ERROR:dbus/object_proxy.cc:590] Failed to call method: org.freedesktop.DBus.Properties.Get: object_path= /org/freedesktop/UPower: org.freedesktop.DBus.Error.ServiceUnknown: The name org.freedesktop.UPower was not provided by any .service files
+[26211:26386:0914/235522.945436:ERROR:dbus/object_proxy.cc:590] Failed to call method: org.freedesktop.UPower.GetDisplayDevice: object_path= /org/freedesktop/UPower: org.freedesktop.DBus.Error.ServiceUnknown: The name org.freedesktop.UPower was not provided by any .service files
+[26211:26386:0914/235522.945837:ERROR:dbus/object_proxy.cc:590] Failed to call method: org.freedesktop.UPower.EnumerateDevices: object_path= /org/freedesktop/UPower: org.freedesktop.DBus.Error.ServiceUnknown: The name org.freedesktop.UPower was not provided by any .service files
+[26249:26249:0914/235529.985187:ERROR:ui/gl/gl_surface_presentation_helper.cc:260] GetVSyncParametersIfAvailable() failed for 1 times!
+[26249:26249:0914/235529.992622:ERROR:ui/gl/gl_surface_presentation_helper.cc:260] GetVSyncParametersIfAvailable() failed for 2 times!
+[26249:26249:0914/235908.166589:ERROR:ui/gl/gl_surface_presentation_helper.cc:260] GetVSyncParametersIfAvailable() failed for 3 times!
+[26250:26256:0915/003702.466670:ERROR:../src/net/socket/ssl_client_socket_impl.cc:914] handshake failed; returned -1, SSL error code 1, net_error -100
+[26250:26256:0915/003702.717011:ERROR:../src/net/socket/ssl_client_socket_impl.cc:914] handshake failed; returned -1, SSL error code 1, net_error -100
+Fontconfig error: Cannot load default config file: No such file: (null)
+Fontconfig error: Cannot load default config file: No such file: (null)
+[26211:26211:0915/005208.397635:ERROR:ui/gfx/x/atom_cache.cc:232] Add chromium/from-privileged to kAtomsToCache
+[2927:2927:0915/075504.727069:ERROR:dbus/object_proxy.cc:590] Failed to call method: org.kde.KWallet.isEnabled: object_path= /modules/kwalletd6: org.freedesktop.DBus.Error.ServiceUnknown: The name org.kde.kwalletd6 was not provided by any .service files
+[2927:2927:0915/075504.727085:ERROR:components/os_crypt/sync/kwallet_dbus.cc:113] Error contacting kwalletd6 (isEnabled)
+[2927:2927:0915/075504.728057:ERROR:dbus/object_proxy.cc:590] Failed to call method: org.kde.KLauncher.start_service_by_desktop_name: object_path= /KLauncher: org.freedesktop.DBus.Error.ServiceUnknown: The name org.kde.klauncher was not provided by any .service files
+[2927:2927:0915/075504.728068:ERROR:components/os_crypt/sync/kwallet_dbus.cc:82] Error contacting klauncher to start kwalletd6
+[2927:2927:0915/075504.728942:ERROR:dbus/object_proxy.cc:590] Failed to call method: org.kde.KWallet.close: object_path= /modules/kwalletd6: org.freedesktop.DBus.Error.ServiceUnknown: The name org.kde.kwalletd6 was not provided by any .service files
+[2927:2927:0915/075504.728948:ERROR:components/os_crypt/sync/kwallet_dbus.cc:408] Error contacting kwalletd6 (close)
+[2927:2927:0915/075504.730746:ERROR:dbus/object_proxy.cc:590] Failed to call method: org.kde.KWallet.isEnabled: object_path= /modules/kwalletd5: org.freedesktop.DBus.Error.ServiceUnknown: The name org.kde.kwalletd5 was not provided by any .service files
+[2927:2927:0915/075504.730754:ERROR:components/os_crypt/sync/kwallet_dbus.cc:113] Error contacting kwalletd5 (isEnabled)
+[2927:2927:0915/075504.731537:ERROR:dbus/object_proxy.cc:590] Failed to call method: org.kde.KLauncher.start_service_by_desktop_name: object_path= /KLauncher: org.freedesktop.DBus.Error.ServiceUnknown: The name org.kde.klauncher was not provided by any .service files
+[2927:2927:0915/075504.731543:ERROR:components/os_crypt/sync/kwallet_dbus.cc:82] Error contacting klauncher to start kwalletd5
+[2927:2927:0915/075504.732393:ERROR:dbus/object_proxy.cc:590] Failed to call method: org.kde.KWallet.close: object_path= /modules/kwalletd5: org.freedesktop.DBus.Error.ServiceUnknown: The name org.kde.kwalletd5 was not provided by any .service files
+[2927:2927:0915/075504.732399:ERROR:components/os_crypt/sync/kwallet_dbus.cc:408] Error contacting kwalletd5 (close)
+[2927:2927:0915/075504.734074:ERROR:dbus/object_proxy.cc:590] Failed to call method: org.kde.KWallet.isEnabled: object_path= /modules/kwalletd: org.freedesktop.DBus.Error.ServiceUnknown: The name org.kde.kwalletd was not provided by any .service files
+[2927:2927:0915/075504.734083:ERROR:components/os_crypt/sync/kwallet_dbus.cc:113] Error contacting kwalletd (isEnabled)
+[2927:2927:0915/075504.734886:ERROR:dbus/object_proxy.cc:590] Failed to call method: org.kde.KLauncher.start_service_by_desktop_name: object_path= /KLauncher: org.freedesktop.DBus.Error.ServiceUnknown: The name org.kde.klauncher was not provided by any .service files
+[2927:2927:0915/075504.734892:ERROR:components/os_crypt/sync/kwallet_dbus.cc:82] Error contacting klauncher to start kwalletd
+[2927:2927:0915/075504.735691:ERROR:dbus/object_proxy.cc:590] Failed to call method: org.kde.KWallet.close: object_path= /modules/kwalletd: org.freedesktop.DBus.Error.ServiceUnknown: The name org.kde.kwalletd was not provided by any .service files
+[2927:2927:0915/075504.735697:ERROR:components/os_crypt/sync/kwallet_dbus.cc:408] Error contacting kwalletd (close)
+[2927:3105:0915/075504.921124:ERROR:dbus/object_proxy.cc:590] Failed to call method: org.freedesktop.DBus.Properties.Get: object_path= /org/freedesktop/UPower: org.freedesktop.DBus.Error.ServiceUnknown: The name org.freedesktop.UPower was not provided by any .service files
+[2927:3105:0915/075504.921497:ERROR:dbus/object_proxy.cc:590] Failed to call method: org.freedesktop.UPower.GetDisplayDevice: object_path= /org/freedesktop/UPower: org.freedesktop.DBus.Error.ServiceUnknown: The name org.freedesktop.UPower was not provided by any .service files
+[2927:3105:0915/075504.921873:ERROR:dbus/object_proxy.cc:590] Failed to call method: org.freedesktop.UPower.EnumerateDevices: object_path= /org/freedesktop/UPower: org.freedesktop.DBus.Error.ServiceUnknown: The name org.freedesktop.UPower was not provided by any .service files
+Fontconfig error: Cannot load default config file: No such file: (null)
+Opening in existing browser session.
+Opening in existing browser session.
+Opening in existing browser session.
+Opening in existing browser session.
+Opening in existing browser session.
+Opening in existing browser session.
+Opening in existing browser session.
+Opening in existing browser session.
+Opening in existing browser session.
+[549415:549415:0926/110631.403190:ERROR:dbus/object_proxy.cc:590] Failed to call method: org.kde.KWallet.isEnabled: object_path= /modules/kwalletd6: org.freedesktop.DBus.Error.ServiceUnknown: The name org.kde.kwalletd6 was not provided by any .service files
+[549415:549415:0926/110631.403211:ERROR:components/os_crypt/sync/kwallet_dbus.cc:113] Error contacting kwalletd6 (isEnabled)
+[549415:549415:0926/110631.404007:ERROR:dbus/object_proxy.cc:590] Failed to call method: org.kde.KLauncher.start_service_by_desktop_name: object_path= /KLauncher: org.freedesktop.DBus.Error.ServiceUnknown: The name org.kde.klauncher was not provided by any .service files
+[549415:549415:0926/110631.404015:ERROR:components/os_crypt/sync/kwallet_dbus.cc:82] Error contacting klauncher to start kwalletd6
+[549415:549415:0926/110631.404830:ERROR:dbus/object_proxy.cc:590] Failed to call method: org.kde.KWallet.close: object_path= /modules/kwalletd6: org.freedesktop.DBus.Error.ServiceUnknown: The name org.kde.kwalletd6 was not provided by any .service files
+[549415:549415:0926/110631.404838:ERROR:components/os_crypt/sync/kwallet_dbus.cc:408] Error contacting kwalletd6 (close)
+[549415:549415:0926/110631.406393:ERROR:dbus/object_proxy.cc:590] Failed to call method: org.kde.KWallet.isEnabled: object_path= /modules/kwalletd5: org.freedesktop.DBus.Error.ServiceUnknown: The name org.kde.kwalletd5 was not provided by any .service files
+[549415:549415:0926/110631.406404:ERROR:components/os_crypt/sync/kwallet_dbus.cc:113] Error contacting kwalletd5 (isEnabled)
+[549415:549415:0926/110631.407216:ERROR:dbus/object_proxy.cc:590] Failed to call method: org.kde.KLauncher.start_service_by_desktop_name: object_path= /KLauncher: org.freedesktop.DBus.Error.ServiceUnknown: The name org.kde.klauncher was not provided by any .service files
+[549415:549415:0926/110631.407224:ERROR:components/os_crypt/sync/kwallet_dbus.cc:82] Error contacting klauncher to start kwalletd5
+[549415:549415:0926/110631.408089:ERROR:dbus/object_proxy.cc:590] Failed to call method: org.kde.KWallet.close: object_path= /modules/kwalletd5: org.freedesktop.DBus.Error.ServiceUnknown: The name org.kde.kwalletd5 was not provided by any .service files
+[549415:549415:0926/110631.408095:ERROR:components/os_crypt/sync/kwallet_dbus.cc:408] Error contacting kwalletd5 (close)
+[549415:549415:0926/110631.409664:ERROR:dbus/object_proxy.cc:590] Failed to call method: org.kde.KWallet.isEnabled: object_path= /modules/kwalletd: org.freedesktop.DBus.Error.ServiceUnknown: The name org.kde.kwalletd was not provided by any .service files
+[549415:549415:0926/110631.409675:ERROR:components/os_crypt/sync/kwallet_dbus.cc:113] Error contacting kwalletd (isEnabled)
+[549415:549415:0926/110631.410541:ERROR:dbus/object_proxy.cc:590] Failed to call method: org.kde.KLauncher.start_service_by_desktop_name: object_path= /KLauncher: org.freedesktop.DBus.Error.ServiceUnknown: The name org.kde.klauncher was not provided by any .service files
+[549415:549415:0926/110631.410547:ERROR:components/os_crypt/sync/kwallet_dbus.cc:82] Error contacting klauncher to start kwalletd
+[549415:549415:0926/110631.411403:ERROR:dbus/object_proxy.cc:590] Failed to call method: org.kde.KWallet.close: object_path= /modules/kwalletd: org.freedesktop.DBus.Error.ServiceUnknown: The name org.kde.kwalletd was not provided by any .service files
+[549415:549415:0926/110631.411410:ERROR:components/os_crypt/sync/kwallet_dbus.cc:408] Error contacting kwalletd (close)
+[549415:549603:0926/110631.613298:ERROR:dbus/object_proxy.cc:590] Failed to call method: org.freedesktop.DBus.Properties.Get: object_path= /org/freedesktop/UPower: org.freedesktop.DBus.Error.ServiceUnknown: The name org.freedesktop.UPower was not provided by any .service files
+[549415:549603:0926/110631.613750:ERROR:dbus/object_proxy.cc:590] Failed to call method: org.freedesktop.UPower.GetDisplayDevice: object_path= /org/freedesktop/UPower: org.freedesktop.DBus.Error.ServiceUnknown: The name org.freedesktop.UPower was not provided by any .service files
+[549415:549603:0926/110631.614151:ERROR:dbus/object_proxy.cc:590] Failed to call method: org.freedesktop.UPower.EnumerateDevices: object_path= /org/freedesktop/UPower: org.freedesktop.DBus.Error.ServiceUnknown: The name org.freedesktop.UPower was not provided by any .service files
