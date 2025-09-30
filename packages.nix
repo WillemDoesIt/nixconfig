@@ -184,6 +184,7 @@
     rofi-wayland # program runner
     rofi-bluetooth
     rofi-network-manager
+    rofi-power-menu
     mpvpaper # live wallpaper (commmand run in hyprland.conf on startup)
     hyprpaper
     hyprshot
