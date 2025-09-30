@@ -86,8 +86,8 @@
     fish # terminal and shell
     ollama
     librechat
-    lf # ranger                # terminal file manager
-    #alt: nnn           # even simpler
+    yazi # terminal file manager
+    #alt: nnn, ranger, lf
     nemo # gui file manager
     #alt: pcmanfm
     vesktop
