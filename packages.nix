@@ -189,6 +189,7 @@
     #
     ##
     waybar # menu bar
+    python3
     dunst # notification daemon
     libnotify
     rofi-wayland # program runner
