@@ -70,7 +70,6 @@
     texlive.combined.scheme-full
 
     cargo
-    gcc
     rustc
     irust # rust dev tool
     cargo-info
