@@ -69,6 +69,8 @@
 
   virtualisation.docker.enable = true;
 
+  environment.localBinInPath = true;
+
   #services.docker = {
   #  enable = true;
   #  extraOptions = "--add-runtime nvidia=/usr/bin/nvidia-container-runtime";
