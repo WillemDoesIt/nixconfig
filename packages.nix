@@ -96,7 +96,6 @@
     firefox
     librewolf
     sidequest
-    ncspot # terminal spotify
     spotify
     audacious # gui music
     musikcube
