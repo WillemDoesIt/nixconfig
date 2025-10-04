@@ -158,7 +158,6 @@
     ##
     tetrio-desktop
     lutris
-    steam
     wivrn
 
     ##
