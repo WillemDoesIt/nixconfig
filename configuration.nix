@@ -80,7 +80,7 @@
   # services.xserver.libinput.enable = true;
 
   programs.steam.enable = true;
-  services.expressvpn.enable = true;
+  # services.expressvpn.enable = true;
   services.gvfs.enable = true;
   services.udisks2.enable = true;
 
@@ -103,6 +103,7 @@
   networking.extraHosts = ''
     10.200.1.1 power-puff-praise.whitcloud.org
   '';
+  networking.nameservers = ["1.1.1.1" "8.8.8.8"];
 
   fonts.fonts = with pkgs; [
     nerd-fonts.jetbrains-mono
