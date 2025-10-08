@@ -120,7 +120,6 @@
     ##
     gimp
     krita
-    davinci-resolve
     obsidian
     blender
     godot_4
