@@ -80,7 +80,7 @@
   # services.xserver.libinput.enable = true;
 
   programs.steam.enable = true;
-  services.expressvpn.enable = true;
+  # services.expressvpn.enable = true;
   services.gvfs.enable = true;
   services.udisks2.enable = true;
 
