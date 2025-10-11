@@ -179,7 +179,6 @@
     pipes
     lolcat
     zsh
-    cowsay
     autojump
 
     ##
