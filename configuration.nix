@@ -105,6 +105,11 @@
   '';
   networking.nameservers = ["1.1.1.1" "8.8.8.8"];
 
+  networking.firewall = {
+    enable = true;
+    allowedTCPPorts = [49153];
+  };
+
   fonts.fonts = with pkgs; [
     nerd-fonts.jetbrains-mono
     corefonts
