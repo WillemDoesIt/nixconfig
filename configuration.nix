@@ -107,7 +107,7 @@
 
   networking.firewall = {
     enable = true;
-    allowedTCPPorts = [49153];
+    allowedTCPPorts = [49153 50001];
   };
 
   fonts.fonts = with pkgs; [
