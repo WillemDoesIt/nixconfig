@@ -68,6 +68,7 @@
     sageWithDoc
     wireshark-qt
     texlive.combined.scheme-full
+    virtualbox
 
     cargo
     rustc
