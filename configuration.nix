@@ -83,6 +83,7 @@
   # services.expressvpn.enable = true;
   services.gvfs.enable = true;
   services.udisks2.enable = true;
+  virtualisation.virtualbox.host.enable = true;
 
   programs.nix-ld.enable = true;
 
