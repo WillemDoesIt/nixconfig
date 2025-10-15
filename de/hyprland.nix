@@ -3,14 +3,10 @@
   pkgs,
   ...
 }: {
-  services.xserver.enable = true;
-
-  services.displayManager.ly.enable = true;
+  imports = [
+    ./greeters/cosmic.nix
+  ];
 
   programs.hyprland.enable = true;
-
-  environment.systemPackages = with pkgs; [
-    hyprland
-    ly
-  ];
+  environment.systemPackages = [pkgs.hyprland];
 }
