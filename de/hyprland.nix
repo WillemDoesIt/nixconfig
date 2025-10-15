@@ -1,15 +1,18 @@
 {
   config,
   pkgs,
+  lib,
   ...
 }: {
-  services.greetd = {
+  services.xserver.enable = true;
+
+  services.displayManager.sddm = {
     enable = true;
+    wayland.enable = true;
+    theme = "chili";
     settings = {
-      default_session = {
-        command = "${pkgs.cage}/bin/cage -s -- ${pkgs.greetd.gtkgreet}/bin/gtkgreet -s Hyprland";
-        user = "greeter";
-      };
+      Wayland = {EnableHiDPI = true;};
+      X11 = {ServerArguments = "-nolisten tcp -dpi 200";};
     };
   };
 
@@ -17,7 +20,6 @@
 
   environment.systemPackages = with pkgs; [
     hyprland
-    greetd.gtkgreet
-    cage
+    sddm-chili-theme
   ];
 }
