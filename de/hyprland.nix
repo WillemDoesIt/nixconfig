@@ -4,7 +4,7 @@
   ...
 }: {
   imports = [
-    ./greeters/cosmic.nix
+    ./greeters/ly.nix
   ];
 
   programs.hyprland.enable = true;

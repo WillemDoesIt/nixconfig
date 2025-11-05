@@ -17,7 +17,10 @@
   networking.hostName = "nixos"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
-  services.openssh.enable = true;
+  services.openssh = {
+    enable = true;
+    settings.GatewayPorts = "yes";
+  };
 
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
@@ -80,6 +83,7 @@
   # services.xserver.libinput.enable = true;
 
   programs.steam.enable = true;
+  programs.localsend.enable = true;
   # services.expressvpn.enable = true;
   services.gvfs.enable = true;
   services.udisks2.enable = true;
@@ -97,7 +101,7 @@
   users.users.willemvz = {
     isNormalUser = true;
     description = "Willem Van Zwol";
-    extraGroups = ["networkmanager" "wheel"];
+    extraGroups = ["networkmanager" "docker" "wheel"];
   };
 
   networking.extraHosts = ''
@@ -107,7 +111,7 @@
 
   networking.firewall = {
     enable = true;
-    allowedTCPPorts = [49153 50001];
+    allowedTCPPorts = [8080 49153 50001];
   };
 
   fonts.fonts = with pkgs; [

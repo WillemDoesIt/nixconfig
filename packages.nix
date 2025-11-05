@@ -68,6 +68,17 @@
     sageWithDoc
     wireshark-qt
     texlive.combined.scheme-full
+    freerdp
+    penpot-desktop
+    qt5.qtbase.dev
+    qt5.qttools.dev
+    qt5.qtsvg.dev
+    openssl.dev
+    zlib.dev
+    expat.dev
+    ffmpeg.dev
+    pkg-config
+    signal-desktop
 
     cargo
     rustc
@@ -81,7 +92,6 @@
     #  General
     #
     ##
-    btop-cuda
     kitty
     fish # terminal and shell
     ollama
@@ -122,6 +132,7 @@
     krita
     obsidian
     blender
+    davinci-resolve
     godot_4
     vscode
     neovim
@@ -165,8 +176,10 @@
     #
     ##
     git
+    btop-cuda
     man
     tldr
+    tmux
     killall
     expressvpn
     zip
