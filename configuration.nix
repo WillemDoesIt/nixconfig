@@ -68,6 +68,24 @@
     # no need to redefine it in your config for now)
     #media-session.enable = true;
   };
+
+  services.nginx = {
+    enable = true;
+    recommendedProxySettings = true;
+    virtualHosts."localhost" = {
+      # no enableACME or forceSSL
+      locations."/" = {
+        proxyPass = "http://127.0.0.1:12345";
+        proxyWebsockets = true;
+      };
+    };
+  };
+
+  security.acme = {
+    acceptTerms = true;
+    defaults.email = "willem@vanzwol.com";
+  };
+
   hardware.bluetooth.enable = true;
 
   virtualisation.docker.enable = true;
@@ -111,7 +129,7 @@
 
   networking.firewall = {
     enable = true;
-    allowedTCPPorts = [8080 49153 50001];
+    allowedTCPPorts = [80 443 50001];
   };
 
   fonts.fonts = with pkgs; [
