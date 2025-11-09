@@ -110,12 +110,69 @@ echo -e "\033[1;33m-------------------------------------------\033[0m\n"
 
 spinner $nixos_pid
 
+
 if ! wait $nixos_pid; then
   echo -e "\n\e[31m !!! REBUILD FAILED !!! \e[0m\n"
-  echo -n "Nothing committed due to "
-  grep --color error "$log_file" | sort -u || true
+  read -p "Copy error to clipboard or show verbose? [y/v/N]: " choice
+  errors=$(grep --color error "$log_file" | sort -u || true)
+
+  case "$choice" in
+    y|Y)
+      echo "$errors" | wl-copy
+      echo -e "\e[33mError copied to clipboard\e[0m"
+      ;;
+    v|V)
+      report=""
+
+      read -p "Include file tree of /etc/nixos? [y/N]: " include_tree
+      if [[ "$include_tree" =~ ^[yY]$ ]]; then
+        report+="My nixos config has the following structure:\n"
+        find /etc/nixos -maxdepth 1 -printf "%f  " ; echo -e "\n\n"
+      fi
+
+      add_files_recursive() {
+        local dir="$1"
+        for f in "$dir"/*; do
+          [ -e "$f" ] || continue
+          if [ -d "$f" ]; then
+            read -p "Include directory $(basename "$f")? [y/N]: " inc_dir
+            if [[ "$inc_dir" =~ ^[yY]$ ]]; then
+              add_files_recursive "$f"
+            fi
+          elif [ -f "$f" ]; then
+            read -p "Include file $(basename "$f")? [y/N]: " inc_file
+            if [[ "$inc_file" =~ ^[yY]$ ]]; then
+              content=$(bat --paging=never "$f" 2>/dev/null || cat "$f")
+              report+="\`\`\`$f\n$content\n\`\`\`\n\n"
+            fi
+          fi
+        done
+      }
+
+      add_files_recursive "/etc/nixos"
+
+      read -p "Include git diff of /etc/nixos? [y/N]: " include_diff
+      if [[ "$include_diff" =~ ^[yY]$ ]]; then
+        diff_output=$(git -C /etc/nixos difftool --no-prompt --extcmd='bash -c "bat --diff --paging=never --color=always \"$LOCAL\" \"$REMOTE\" | tail -n +5"' 2>/dev/null)
+        report+="Git diff:\n\`\`\`\n$diff_output\n\`\`\`\n\n"
+      fi
+
+      report+="So why am I getting the error?:\n$errors\n"
+      report+="What is the fix?\n"
+
+      echo -e "$report"
+      echo -e "$report" | wl-copy
+      echo -e "\e[33mVerbose error + report copied to clipboard\e[0m"
+      ;;
+    *)
+      echo "$errors"
+      ;;
+  esac
+
   exit 1
 fi
+
+
 
 # --- git commit + push ---
 gen=$(sudo nixos-rebuild list-generations | grep current)
