@@ -178,7 +178,7 @@ fi
 gen=$(sudo nixos-rebuild list-generations | grep current)
 
 if git -C /etc/nixos diff --quiet && ! git -C /etc/nixos ls-files --others --exclude-standard | grep -q .; then
-  echo -e "\e[32mNothing to commit (already up to date) ✔\e[0m"
+  echo -e "\n\e[32mNothing to commit (already up to date) ✔\e[0m\n"
 else
   echo -e "\n\n\e[32mRebuild Done Successfully! ദ്ദി(˵ •̀ ᴗ - ˵ ) ✧\e[0m\n\n"
   git -C /etc/nixos add -A
