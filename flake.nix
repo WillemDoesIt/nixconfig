@@ -18,6 +18,7 @@
         ./hardware-configuration.nix
         ./packages.nix
         ./de/hyprland.nix # alt: ./de/sway.nix
+        ./de/kde.nix # You can pick which one in the greeter
         ./nvidia.nix
         ./dark-mode.nix
       ];
