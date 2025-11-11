@@ -69,17 +69,17 @@
     #media-session.enable = true;
   };
 
-  services.nginx = {
-    enable = true;
-    recommendedProxySettings = true;
-    virtualHosts."localhost" = {
-      # no enableACME or forceSSL
-      locations."/" = {
-        proxyPass = "http://127.0.0.1:12345";
-        proxyWebsockets = true;
-      };
-    };
-  };
+  # services.nginx = {
+  #   enable = true;
+  #   recommendedProxySettings = true;
+  #   virtualHosts."localhost" = {
+  #     # no enableACME or forceSSL
+  #     locations."/" = {
+  #       proxyPass = "http://127.0.0.1:12345";
+  #       proxyWebsockets = true;
+  #     };
+  #   };
+  # };
 
   security.acme = {
     acceptTerms = true;
