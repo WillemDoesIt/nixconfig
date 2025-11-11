@@ -188,7 +188,7 @@
     #dnw: roccat-tools  # for Roccat (brand) keyboard (25.03.04)
 
     # uselesss terminall stuffs
-    neofetch
+    fastfetch
     pipes
     lolcat
     zsh
