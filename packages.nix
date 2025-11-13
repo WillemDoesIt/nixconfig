@@ -141,6 +141,7 @@
     fd
     lazygit
     vimPlugins.rustaceanvim
+    handbrake
     #reaper               # audio tool
 
     ##
