@@ -118,6 +118,7 @@
     transmission_4-qt # torrent engine
     #alt: qbittorrent-nox
     vlc # media viewer
+    libaacs
     #alt: mpv
 
     #parsec-bin           # doesn't host !?
