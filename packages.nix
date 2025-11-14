@@ -117,8 +117,7 @@
     audacity
     transmission_4-qt # torrent engine
     #alt: qbittorrent-nox
-    vlc # media viewer
-    libaacs
+    (vlc.overrideAttrs (old: {buildInputs = old.buildInputs ++ [libaacs];}))
     #alt: mpv
 
     #parsec-bin           # doesn't host !?
