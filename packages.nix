@@ -210,6 +210,7 @@
     mpvpaper # live wallpaper (commmand run in hyprland.conf on startup)
     hyprpaper
     hyprshot
+    hyprlock
     hyprcursor
     wl-clipboard
     playerctl # media control for shortcuts
