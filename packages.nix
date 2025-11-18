@@ -49,6 +49,7 @@
     #  TEMP
     #
     ##
+    wlogout
     nushell # alternative shell
     dust # wintree for linux
     bat # better `cat`
