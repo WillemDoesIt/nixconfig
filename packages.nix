@@ -193,7 +193,6 @@
     fastfetch
     pipes
     lolcat
-    zsh
     autojump
 
     ##
