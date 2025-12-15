@@ -79,7 +79,6 @@
     expat.dev
     ffmpeg.dev
     pkg-config
-    signal-desktop
 
     cargo
     rustc
