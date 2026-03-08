@@ -11,16 +11,12 @@
   ];
 
   # Bootloader.
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
+  boot.loader = {
+    systemd-boot.enable = true;
+    efi.canTouchEfiVariables = true;
+  };
 
   networking.hostName = "nixos"; # Define your hostname.
-  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-
-  services.openssh = {
-    enable = true;
-    settings.GatewayPorts = "yes";
-  };
 
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
@@ -50,36 +46,39 @@
     options = ["defaults" "nofail" "x-systemd.automount"];
   };
 
-  # Enable CUPS to print documents.
-  services.printing.enable = true;
+  services = {
+    # Enable CUPS to print documents.
+    printing.enable = true;
+    pulseaudio.enable = false;
 
-  # Enable sound with pipewire.
-  services.pulseaudio.enable = false;
-  security.rtkit.enable = true;
-  services.pipewire = {
-    enable = true;
-    alsa.enable = true;
-    alsa.support32Bit = true;
-    pulse.enable = true;
-    # If you want to use JACK applications, uncomment this
-    #jack.enable = true;
+    # Enable sound with pipewire.
+    pipewire = {
+      enable = true;
+      alsa.enable = true;
+      alsa.support32Bit = true;
+      pulse.enable = true;
+      # If you want to use JACK applications, uncomment this
+      #jack.enable = true;
 
-    # use the example session manager (no others are packaged yet so this is enabled by default,
-    # no need to redefine it in your config for now)
-    #media-session.enable = true;
+      # use the example session manager (no others are packaged yet so this is enabled by default,
+      # no need to redefine it in your config for now)
+      #media-session.enable = true;
+    };
+
+    # services.nginx = {
+    #   enable = true;
+    #   recommendedProxySettings = true;
+    #   virtualHosts."localhost" = {
+    #     # no enableACME or forceSSL
+    #     locations."/" = {
+    #       proxyPass = "http://127.0.0.1:12345";
+    #       proxyWebsockets = true;
+    #     };
+    #   };
+    # };
   };
 
-  # services.nginx = {
-  #   enable = true;
-  #   recommendedProxySettings = true;
-  #   virtualHosts."localhost" = {
-  #     # no enableACME or forceSSL
-  #     locations."/" = {
-  #       proxyPass = "http://127.0.0.1:12345";
-  #       proxyWebsockets = true;
-  #     };
-  #   };
-  # };
+  security.rtkit.enable = true;
 
   security.acme = {
     acceptTerms = true;
@@ -91,6 +90,7 @@
   virtualisation.docker.enable = true;
 
   environment.localBinInPath = true;
+  environment.sessionVariables.QT_NO_KDE_WALLET = "1"; # use default GNOME keyring not K Wallet
 
   #services.docker = {
   #  enable = true;
@@ -102,7 +102,7 @@
 
   programs.steam.enable = true;
   programs.localsend.enable = true;
-  # services.expressvpn.enable = true;
+  services.expressvpn.enable = true;
   services.gvfs.enable = true;
   services.udisks2.enable = true;
 
@@ -129,13 +129,13 @@
 
   networking.firewall = {
     enable = true;
-    allowedTCPPorts = [80 443 49153 50001];
+    allowedTCPPorts = [80 443 3000 9000 49153 50001];
   };
 
-  fonts.fonts = with pkgs; [
+  fonts.packages = with pkgs; [
     nerd-fonts.jetbrains-mono
     corefonts
-    vistafonts
+    vista-fonts
     wineWowPackages.fonts
   ];
 

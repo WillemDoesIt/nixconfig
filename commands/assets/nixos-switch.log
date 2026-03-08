@@ -1,0 +1,59 @@
+warning: Git tree '/etc/nixos' is dirty
+building the system configuration...
+warning: Git tree '/etc/nixos' is dirty
+these 13 derivations will be built:
+  /nix/store/118misppiniym922qclciq387d9rp8hc-winboat-0.8.7.drv
+  /nix/store/8jmdnh4lfw68i4kpxhk8hfddw975b2h9-system-path.drv
+  /nix/store/75awd7p2xvilsllq2b50y38jjnn8lh3p-dbus-1.drv
+  /nix/store/k9ng8azvbiab648y9xhlhg5ylxi2a1x5-unit-accounts-daemon.service.drv
+  /nix/store/4zfrgs07bqs0yjvs9y19yg77sw4crx3b-X-Restart-Triggers-dbus.drv
+  /nix/store/nhwkrk83ldk0mis8nw6bllaip9ya05pb-unit-dbus.service.drv
+  /nix/store/dv8r0a8yy7qgs9ma1qv1yr12v5r3flpq-X-Restart-Triggers-polkit.drv
+  /nix/store/v6603ql0q2yw9p1wgy301mzhvbdgwsby-unit-polkit.service.drv
+  /nix/store/nr6yq5x4ff3vh22mnrv0m1lmsm2s1ys0-system-units.drv
+  /nix/store/3jh2wqxmicf7n0vs5m8qrphpq9lgnccy-unit-dbus.service.drv
+  /nix/store/qpwn6ri7nfmgn5gyd9w3a46z1g3r1xn6-user-units.drv
+  /nix/store/917lwm3dpf8x1klr8sc6i1fwdy9jibip-etc.drv
+  /nix/store/1miqgmbag1rxdwkqkxp3y26dx7fljcdl-nixos-system-nixos-25.11.20251215.c8cfcd6.drv
+building '/nix/store/118misppiniym922qclciq387d9rp8hc-winboat-0.8.7.drv'...
+error: Cannot build '/nix/store/118misppiniym922qclciq387d9rp8hc-winboat-0.8.7.drv'.
+       Reason: builder failed with exit code 1.
+       Output paths:
+         /nix/store/58zw4zy8j6ln1aqiqq9r058l3a3c772a-winboat-0.8.7
+       Last 25 log lines:
+       > npm error
+       > npm error Usage:
+       > npm error npm ci
+       > npm error
+       > npm error Options:
+       > npm error [--install-strategy <hoisted|nested|shallow|linked>] [--legacy-bundling]
+       > npm error [--global-style] [--omit <dev|optional|peer> [--omit <dev|optional|peer> ...]]
+       > npm error [--include <prod|dev|optional|peer> [--include <prod|dev|optional|peer> ...]]
+       > npm error [--strict-peer-deps] [--foreground-scripts] [--ignore-scripts] [--no-audit]
+       > npm error [--no-bin-links] [--no-fund] [--dry-run]
+       > npm error [-w|--workspace <workspace-name> [-w|--workspace <workspace-name> ...]]
+       > npm error [--workspaces] [--include-workspace-root] [--install-links]
+       > npm error
+       > npm error aliases: clean-install, ic, install-clean, isntall-clean
+       > npm error
+       > npm error Run "npm help ci" for more info
+       > npm error A complete log of this run can be found in: /build/cache/_logs/2026-03-06T23_53_35_153Z-debug-0.log
+       >
+       > ERROR: npm failed to install dependencies
+       >
+       > Here are a few things you can try, depending on the error:
+       > 1. Set `makeCacheWritable = true`
+       >   Note that this won't help if npm is complaining about not being able to write to the logs directory -- look above that for the actual error.
+       > 2. Set `npmFlags = [ "--legacy-peer-deps" ]`
+       >
+       For full logs, run:
+         nix log /nix/store/118misppiniym922qclciq387d9rp8hc-winboat-0.8.7.drv
+error: Cannot build '/nix/store/8jmdnh4lfw68i4kpxhk8hfddw975b2h9-system-path.drv'.
+       Reason: 1 dependency failed.
+       Output paths:
+         /nix/store/b8qd2rniffsxvic3ibw5k1j794fvnbvv-system-path
+error: Cannot build '/nix/store/1miqgmbag1rxdwkqkxp3y26dx7fljcdl-nixos-system-nixos-25.11.20251215.c8cfcd6.drv'.
+       Reason: 1 dependency failed.
+       Output paths:
+         /nix/store/zj1r3xspbnx5bbvgy7cmrlxarx0r3yw5-nixos-system-nixos-25.11.20251215.c8cfcd6
+Command 'nix --extra-experimental-features 'nix-command flakes' build --print-out-paths '/etc/nixos#nixosConfigurations."nixos".config.system.build.toplevel' --no-link' returned non-zero exit status 1.

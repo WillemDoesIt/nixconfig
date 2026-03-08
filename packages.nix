@@ -7,7 +7,7 @@
 
       # Change Java runtimes available to Prism Launcher
       jdks = [
-        graalvm-ce
+        graalvmPackages.graalvm-ce
         zulu8
         zulu17
         zulu
@@ -49,6 +49,7 @@
     #  TEMP
     #
     ##
+    winboat
     wlogout
     nushell # alternative shell
     dust # wintree for linux
@@ -67,8 +68,6 @@
     cbonsai
     xdg-user-dirs
     sageWithDoc
-    wireshark-qt
-    texlive.combined.scheme-full
     freerdp
     penpot-desktop
     qt5.qtbase.dev
@@ -79,13 +78,9 @@
     expat.dev
     ffmpeg.dev
     pkg-config
+    ngrok
+    gcc
 
-    cargo
-    rustc
-    irust # rust dev tool
-    cargo-info
-    bacon
-    sccache
     miniserve
 
     ##
@@ -117,7 +112,7 @@
     audacity
     transmission_4-qt # torrent engine
     #alt: qbittorrent-nox
-    (vlc.overrideAttrs (old: {buildInputs = old.buildInputs ++ [libaacs];}))
+    vlc
     #alt: mpv
 
     #parsec-bin           # doesn't host !?
@@ -131,6 +126,7 @@
     gimp
     krita
     obsidian
+    logseq
     blender
     davinci-resolve
     godot_4
@@ -140,7 +136,6 @@
     ripgrep
     fd
     lazygit
-    vimPlugins.rustaceanvim
     handbrake
     #reaper               # audio tool
 
@@ -159,7 +154,7 @@
     evolution-ews # Required for Microsoft Exchange Web Services (EWS)
     gnome-keyring # Manages saved credentials
     seahorse # Optional, GUI for managing stored credentials
-    libsoup
+    libsoup_3
     #dnw: bottles-unwrapped            # ways to run microsoft stuff on linux
     wineWowPackages.waylandFull
 
@@ -190,8 +185,6 @@
 
     # uselesss terminall stuffs
     fastfetch
-    pipes
-    lolcat
     autojump
 
     ##
@@ -199,14 +192,14 @@
     #
     ##
     waybar # menu bar
-    python3
     dunst # notification daemon
     libnotify
-    rofi-wayland # program runner
+    rofi # program runner
     rofi-bluetooth
     rofi-network-manager
     rofi-power-menu
-    mpvpaper # live wallpaper (commmand run in hyprland.conf on startup)
+    brightnessctl
+    #mpvpaper # live wallpaper (commmand run in hyprland.conf on startup)
     hyprpaper
     hyprshot
     hyprlock

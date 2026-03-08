@@ -2,8 +2,9 @@
 set -euo pipefail
 
 origin=$(pwd)
-time_file="$HOME/Programs/nixscripts/nixos-rebuild-time.txt"
-log_file="$HOME/Programs/nixscripts/nixos-switch.log"
+sudo chown "$USER" /etc/nixos/commands/assets/nixos-rebuild-time.txt /etc/nixos/commands/assets/nixos-switch.log
+time_file="/etc/nixos/commands/assets/nixos-rebuild-time.txt"
+log_file="/etc/nixos/commands/assets/nixos-switch.log"
 
 mode="default"
 do_gc=false
@@ -73,7 +74,7 @@ git difftool --no-prompt --extcmd='bash -c "bat --diff --paging=never --color=al
 
 
 # previous build time
-prev_time=$(<"$time_file" 2>/dev/null || echo 0)
+prev_time=$(cat "$time_file" 2>/dev/null)
 
 
 cat <<'EOF'
@@ -100,6 +101,7 @@ spinner() {
 }
 
 [[ -f "$log_file" ]] || touch "$log_file"
+[[ -z "$prev_time" ]] && prev_time=0
 
 sudo nixos-rebuild switch --flake /etc/nixos#nixos&>"$log_file" &
 nixos_pid=$!
