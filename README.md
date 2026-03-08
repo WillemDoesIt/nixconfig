@@ -18,6 +18,8 @@ initially start by downloading my repo and running the defulat rebuild command
 git clone git@github.com:WillemDoesIt/dotfiles.git /etc/nixos/
 sudo nixos-rebuild switch --flake /etc/nixos#nixos
 ```
+> [!WARNING]
+> I haven't tried this on another device, I believe you may want to make a backup of your hardware.nix file before doing this
 
 From now on you will never need to run the default rebuild command again. Instead run `re`, which will:
 1. automatically sync with any changes in this remote repo 

@@ -1,2 +1,2 @@
 *.webui_secret_key
-commands/assets/
+commands/assets/*

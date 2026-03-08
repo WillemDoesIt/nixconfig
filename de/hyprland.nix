@@ -8,5 +8,8 @@
   ];
 
   programs.hyprland.enable = true;
-  environment.systemPackages = [pkgs.hyprland];
+  environment.systemPackages = with pkgs; [
+    hyprland
+    wlogout
+  ];
 }
