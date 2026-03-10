@@ -129,7 +129,7 @@
 
   networking.firewall = {
     enable = true;
-    allowedTCPPorts = [80 443 3000 9000 49153 50001];
+    #allowedTCPPorts = [];
   };
 
   fonts.packages = with pkgs; [

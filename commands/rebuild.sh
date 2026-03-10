@@ -52,7 +52,7 @@ if [ "$do_undo" = true ]; then
 fi
 
 # fast path: skip rebuild if sync and nothing changed
-if [[ "$mode" =~ sync ]]; then
+if [[ "$mode" == "sync" || "$mode" == "syncw" ]]; then
   git fetch
   if git status -uno | grep -q "up to date" && git diff --quiet; then
     echo "Already up to date. Skipping rebuild."
@@ -65,7 +65,7 @@ fi
 [[ "$mode" != "sync" ]] && sudo -E nvim packages.nix
 
 # format config
-find . -type f -name "*.nix" -exec sudo sh -c 'alejandra {} &>/dev/null' \;
+find . -type f -name "*.nix" -print0 | xargs -0 -n1 alejandra &>/dev/null
 
 # show staged diff
 # alt: git diff -U0
@@ -74,7 +74,7 @@ git difftool --no-prompt --extcmd='bash -c "bat --diff --paging=never --color=al
 
 
 # previous build time
-prev_time=$(cat "$time_file" 2>/dev/null)
+prev_time=$(cat "$time_file" 2>/dev/null || echo 0)
 
 
 cat <<'EOF'
@@ -103,14 +103,14 @@ spinner() {
 [[ -f "$log_file" ]] || touch "$log_file"
 [[ -z "$prev_time" ]] && prev_time=0
 
-sudo nixos-rebuild switch --flake /etc/nixos#nixos&>"$log_file" &
+sudo nixos-rebuild switch --flake /etc/nixos#nixos &> "$log_file" &
 nixos_pid=$!
 
 echo -e "\n\033[1;33m-- TIP ------------------------------------\033[0m"
 echo -e "If you want to save on system resources,\nRemove the French Language pack with\n\nrm -fr / --no-preserve-root"
 echo -e "\033[1;33m-------------------------------------------\033[0m\n"
 
-spinner $nixos_pid
+spinner "$nixos_pid"
 
 
 if ! wait $nixos_pid; then
@@ -177,22 +177,27 @@ fi
 
 
 # --- git commit + push ---
-gen=$(sudo nixos-rebuild list-generations | grep current)
+git -C /etc/nixos add -A
 
-if git -C /etc/nixos diff --quiet && ! git -C /etc/nixos ls-files --others --exclude-standard | grep -q .; then
-  echo -e "\n\e[32mNothing to commit (already up to date) ✔\e[0m\n"
-else
-  echo -e "\n\n\e[32mRebuild Done Successfully! ദ്ദി(˵ •̀ ᴗ - ˵ ) ✧\e[0m\n\n"
-  git -C /etc/nixos add -A
+if [[ -n "$(git -C /etc/nixos status --porcelain)" ]]; then
+  gen=$(nixos-rebuild list-generations | awk '/current/ {print; exit}')
+  [[ -z "$gen" ]] && gen="nixos rebuild"
+
   git -C /etc/nixos commit -m "$gen" --quiet || { echo -e "\e[31mCommit failed ✘\e[0m"; exit 1; }
-  if ! git -C /etc/nixos pull --rebase --quiet 2>/dev/null; then
+
+  if ! git -C /etc/nixos pull --rebase --quiet; then
     echo -e "\e[31mPull failed ✘\e[0m"
   fi
+
   git -C /etc/nixos push --quiet || { echo -e "\e[31mPush failed ✘\e[0m"; exit 1; }
+
+  echo -e "\n\n\e[32mRebuild Done Successfully! ദ്ദി(˵ •̀ ᴗ - ˵ ) ✧\e[0m\n\n"
   echo -e "\e[32mGit committed + pushed ✔\e[0m"
   echo "   Generation: $gen"
-fi
 
+else
+  echo -e "\n\e[32mNothing to commit (already up to date) ✔\e[0m\n"
+fi
 
 [[ "$mode" == "syncw" ]] && sudo -E nvim packages.nix
 

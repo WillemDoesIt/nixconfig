@@ -49,11 +49,8 @@
     #  TEMP
     #
     ##
-    nushell # alternative shell
     dust # wintree for linux
     bat # better `cat`
-    gitui
-    wiki-tui # wikipedia tui
     nomacs
     gparted
     docker
@@ -67,10 +64,6 @@
     xdg-user-dirs
     sageWithDoc
     freerdp
-    penpot-desktop
-    qt5.qtbase.dev
-    qt5.qttools.dev
-    qt5.qtsvg.dev
     openssl.dev
     zlib.dev
     expat.dev
