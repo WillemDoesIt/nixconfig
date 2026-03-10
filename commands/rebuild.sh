@@ -77,6 +77,8 @@ git difftool --no-prompt --extcmd='bash -c "bat --diff --paging=never --color=al
 prev_time=$(cat "$time_file" 2>/dev/null || echo 0)
 
 
+print_banner() {
+printf "\e[36m"
 cat <<'EOF'
  _ _  _      ___  ___    ___       _         _  _    _  _                    
 | \ |[_]__  | . |/ __]  | . \ ___ | |_  _ _ [_]| | _| |[_]._ _  ___          
@@ -84,6 +86,9 @@ cat <<'EOF'
 |_\_||_|/\_\`___'[___/  |_\_\\___.|___/`___||_||_|\___||_||_|_|\_. |[_][_][_]
                                                                [___'         
 EOF
+printf "\e[0m"
+}
+print_banner
 
 cd "$origin"
 
@@ -175,8 +180,20 @@ if ! wait $nixos_pid; then
 fi
 
 
+print_done() {
+printf "\e[32m"
+cat <<'EOF'
+ ____  _   _  ____ ____ _____ ____ ____  
+/ ___|| | | |/ ___/ ___| ____/ ___/ ___| 
+\___ \| | | | |  | |   |  _| \___ \___ \ 
+ ___) | |_| | |__| |___| |___ ___) |__) |
+|____/ \___/ \____\____|_____|____/____/  
+EOF
+printf "\e[0m"
+}
 
 # --- git commit + push ---
+#
 git -C /etc/nixos add -A
 
 if [[ -n "$(git -C /etc/nixos status --porcelain)" ]]; then
@@ -191,7 +208,7 @@ if [[ -n "$(git -C /etc/nixos status --porcelain)" ]]; then
 
   git -C /etc/nixos push --quiet || { echo -e "\e[31mPush failed ✘\e[0m"; exit 1; }
 
-  echo -e "\n\n\e[32mRebuild Done Successfully! ദ്ദി(˵ •̀ ᴗ - ˵ ) ✧\e[0m\n\n"
+  print_done
   echo -e "\e[32mGit committed + pushed ✔\e[0m"
   echo "   Generation: $gen"
 
