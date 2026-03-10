@@ -182,6 +182,7 @@ fi
 print_done() {
 printf "\e[32m"
 cat <<'EOF'
+
  ____  _   _  ____ ____ _____ ____ ____  
 / ___|| | | |/ ___/ ___| ____/ ___/ ___| 
 \___ \| | | | |  | |   |  _| \___ \___ \ 
@@ -197,7 +198,7 @@ printf "\e[0m"
 git -C /etc/nixos add -A
 
 if [[ -n "$(git -C /etc/nixos status --porcelain)" ]]; then
-  gen=$(nixos-rebuild list-generations | awk '/current/ {print; exit}')
+  gen=$(nixos-rebuild list-generations | awk '$NF=="True" {print $1; exit}')
   [[ -z "$gen" ]] && gen="nixos rebuild"
 
   git -C /etc/nixos commit -m "$gen" --quiet || { echo -e "\e[31mCommit failed ✘\e[0m"; exit 1; }
@@ -210,7 +211,7 @@ if [[ -n "$(git -C /etc/nixos status --porcelain)" ]]; then
 
   print_done
   echo -e "\e[32mGit committed + pushed ✔\e[0m"
-  echo "   Generation: $gen \n"
+  echo "   Generation: $gen"
 
 else
   echo -e "\n\e[32mNothing to commit (already up to date) ✔\e[0m\n"
