@@ -76,7 +76,6 @@ git difftool --no-prompt --extcmd='bash -c "bat --diff --paging=never --color=al
 # previous build time
 prev_time=$(cat "$time_file" 2>/dev/null || echo 0)
 
-
 print_banner() {
 printf "\e[36m"
 cat <<'EOF'
@@ -188,6 +187,7 @@ cat <<'EOF'
 \___ \| | | | |  | |   |  _| \___ \___ \ 
  ___) | |_| | |__| |___| |___ ___) |__) |
 |____/ \___/ \____\____|_____|____/____/  
+
 EOF
 printf "\e[0m"
 }
@@ -210,7 +210,7 @@ if [[ -n "$(git -C /etc/nixos status --porcelain)" ]]; then
 
   print_done
   echo -e "\e[32mGit committed + pushed ✔\e[0m"
-  echo "   Generation: $gen"
+  echo "   Generation: $gen \n"
 
 else
   echo -e "\n\e[32mNothing to commit (already up to date) ✔\e[0m\n"
