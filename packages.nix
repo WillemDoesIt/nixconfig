@@ -49,6 +49,7 @@
     #  TEMP
     #
     ##
+    unityhub
     ncdu # wintree for linux
     bat # better `cat`
     nomacs
