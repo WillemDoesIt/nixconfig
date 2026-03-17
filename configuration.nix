@@ -68,7 +68,7 @@
     ollama = {
       enable = true;
       package = pkgs.ollama-cuda;
-      loadModels = ["llama3.2:3b" "deepseek-v3.2:cloud" "qwen3.5:latest"];
+      loadModels = ["llama4:latest" "deepseek-v3:latest" "qwen3.5:35b"];
     };
     open-webui.enable = true;
 
