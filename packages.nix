@@ -35,16 +35,6 @@
       bash /etc/nixos/commands/nps.sh "$@"
     '')
 
-    # this makes `chat` a command that deploys ollama and it's webui
-    (writeShellScriptBin "chat" ''
-      bash /etc/nixos/commands/venvs/deploy.sh "$@"
-    '')
-
-    # this makes `chatend` a command that stops the deployment of ollama and it's webui
-    (writeShellScriptBin "chatend" ''
-      bash /etc/nixos/commands/venvs/stop.sh "$@"
-    '')
-
     ##
     #  TEMP
     #
@@ -81,7 +71,6 @@
     ##
     kitty
     fish # terminal and shell
-    ollama
     librechat
     yazi # terminal file manager
     #alt: nnn, ranger, lf
