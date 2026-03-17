@@ -65,6 +65,13 @@
       #media-session.enable = true;
     };
 
+    ollama = {
+      enable = true;
+      package = pkgs.ollama-cuda;
+      loadModels = ["llama3.2:3b" "deepseek-r1:1.5b" "qwen3.5"];
+    };
+    open-webui.enable = true;
+
     # services.nginx = {
     #   enable = true;
     #   recommendedProxySettings = true;
