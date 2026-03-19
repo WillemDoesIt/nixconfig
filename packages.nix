@@ -109,7 +109,6 @@
     obsidian
     logseq
     blender
-    davinci-resolve
     godot_4
     vscode
     neovim
