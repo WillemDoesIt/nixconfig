@@ -65,12 +65,12 @@
       #media-session.enable = true;
     };
 
-    ollama = {
-      enable = true;
-      package = pkgs.ollama-cuda;
-      loadModels = ["llama4:latest" "deepseek-v3:latest" "qwen3.5:35b"];
-    };
-    open-webui.enable = true;
+    #ollama = {
+    #  enable = true;
+    #  package = pkgs.ollama-cuda;
+    #  loadModels = ["llama4:latest" "deepseek-v3:latest" "qwen3.5:35b"];
+    #};
+    #open-webui.enable = true;
 
     # services.nginx = {
     #   enable = true;
