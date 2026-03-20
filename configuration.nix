@@ -65,7 +65,10 @@
       #media-session.enable = true;
     };
 
-    syncthing.enable = true;
+    syncthing = {
+      enable = true;
+      openDefaultPorts = true;
+    };
 
     #ollama = {
     #  enable = true;
