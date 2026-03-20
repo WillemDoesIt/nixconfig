@@ -65,6 +65,8 @@
       #media-session.enable = true;
     };
 
+    syncthing.enable = true;
+
     #ollama = {
     #  enable = true;
     #  package = pkgs.ollama-cuda;
