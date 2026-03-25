@@ -135,7 +135,7 @@
 
   programs.steam.enable = true;
   programs.localsend.enable = true;
-  # services.expressvpn.enable = true;
+  services.expressvpn.enable = true;
   services.gvfs.enable = true;
   services.udisks2.enable = true;
 
