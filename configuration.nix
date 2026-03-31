@@ -91,6 +91,8 @@
       #};
     };
 
+    i2p.enable = true;
+
     #ollama = {
     #  enable = true;
     #  package = pkgs.ollama-cuda;
