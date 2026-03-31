@@ -96,6 +96,7 @@
       proto = {
         http.enable = true;
         socksProxy.enable = true;
+        socksProxy.outproxyEnable = true;
         httpProxy.enable = true;
         sam.enable = true;
       };
