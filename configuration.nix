@@ -91,7 +91,15 @@
       #};
     };
 
-    i2p.enable = true;
+    i2pd = {
+      enable = true;
+      proto = {
+        http.enable = true;
+        socksProxy.enable = true;
+        httpProxy.enable = true;
+        sam.enable = true;
+      };
+    };
 
     #ollama = {
     #  enable = true;
@@ -163,7 +171,7 @@
 
   networking.firewall = {
     enable = true;
-    #allowedTCPPorts = [];
+    allowedTCPPorts = [7070 4447 444];
   };
 
   fonts.packages = with pkgs; [
