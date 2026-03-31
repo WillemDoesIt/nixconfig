@@ -91,21 +91,22 @@
       #};
     };
 
-    i2pd = {
-      enable = true;
-
-      proto = {
-        http.enable = true;
-        socksProxy.enable = true;
-        httpProxy.enable = true;
-        sam.enable = true;
-
-        socksProxy.outproxyEnable = true;
-      };
-
-      address = "0.0.0.0";
-      port = 4567;
-    };
+    i2p.enable = true;
+    # i2pd = {
+    #   enable = true;
+    #
+    #   proto = {
+    #     http.enable = true;
+    #     socksProxy.enable = true;
+    #     httpProxy.enable = true;
+    #     sam.enable = true;
+    #
+    #    socksProxy.outproxyEnable = true;
+    #   };
+    #
+    #   address = "0.0.0.0";
+    #   port = 4567;
+    # };
 
     #ollama = {
     #  enable = true;
@@ -151,7 +152,6 @@
 
   programs.steam.enable = true;
   programs.localsend.enable = true;
-  services.expressvpn.enable = true;
   services.gvfs.enable = true;
   services.udisks2.enable = true;
 
