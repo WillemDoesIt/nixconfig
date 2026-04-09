@@ -39,6 +39,8 @@
     #  TEMP
     #
     ##
+    gnupg
+    pinentry-tty
     unityhub
     ncdu # wintree for linux
     bat # better `cat`
