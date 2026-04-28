@@ -9,6 +9,11 @@
   # Load nvidia driver for Xorg and Wayland
   services.xserver.videoDrivers = ["nvidia"];
 
+  # Intel first, NVIDIA secondary (offload only)
+  environment.sessionVariables = {
+    WLR_DRM_DEVICES = "/dev/dri/card1:/dev/dri/card2";
+  };
+
   hardware.nvidia = {
     modesetting.enable = true;
 
