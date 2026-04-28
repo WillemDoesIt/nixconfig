@@ -6,8 +6,10 @@
     enable = true;
   };
 
+  boot.kernelModules = ["nvidia" "nvidia_modeset" "nvidia_uvm" "nvidia_drm"];
+
   # Load nvidia driver for Xorg and Wayland
-  # services.xserver.videoDrivers = ["nvidia"];
+  services.xserver.videoDrivers = ["nvidia"];
 
   # Intel first, NVIDIA secondary (offload only)
   # environment.sessionVariables = {
