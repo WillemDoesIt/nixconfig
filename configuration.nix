@@ -91,7 +91,6 @@
       #};
     };
 
-    i2p.enable = true;
     # i2pd = {
     #   enable = true;
     #
@@ -163,7 +162,7 @@
   systemd.tmpfiles.rules = [
     "d /etc/nixos 0755 willemvz users -"
   ];
-  systemd.services.i2pd = {
+  systemd.services.i2p = {
     unitConfig.ConditionACPower = true;
   };
 
