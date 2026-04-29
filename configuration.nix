@@ -91,7 +91,7 @@
       #};
     };
 
-    # i2p.enable = true;
+    i2p.enable = true;
     # i2pd = {
     #   enable = true;
     #
@@ -163,6 +163,9 @@
   systemd.tmpfiles.rules = [
     "d /etc/nixos 0755 willemvz users -"
   ];
+  systemd.services.i2pd = {
+    unitConfig.ConditionACPower = true;
+  };
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.willemvz = {
