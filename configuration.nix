@@ -91,7 +91,7 @@
       #};
     };
 
-    i2p.enable = true;
+    # i2p.enable = true;
     # i2pd = {
     #   enable = true;
     #
