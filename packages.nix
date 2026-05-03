@@ -39,6 +39,7 @@
     #  TEMP
     #
     ##
+    renpy
     gnupg
     pinentry-tty
     unityhub
