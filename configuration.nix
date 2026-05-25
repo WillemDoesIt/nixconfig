@@ -51,8 +51,6 @@
     printing.enable = true;
     pulseaudio.enable = false;
 
-    expressvpn.enable = true;
-
     # Enable sound with pipewire.
     pipewire = {
       enable = true;
