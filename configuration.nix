@@ -157,7 +157,7 @@
   programs.nix-ld.enable = true;
 
   # for evolution email (if it doesn't work remove this)
-  services.gnome.gnome-keyring.enable = true;
+  #services.gnome.gnome-keyring.enable = true;
 
   systemd.tmpfiles.rules = [
     "d /etc/nixos 0755 willemvz users -"
