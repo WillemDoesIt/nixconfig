@@ -66,6 +66,7 @@
     ngrok
     gcc
     miniserve
+    kdePackages.kdenlive
 
     ##
     #  General
