@@ -51,6 +51,9 @@
     printing.enable = true;
     pulseaudio.enable = false;
 
+    minecraft-server.enable = true;
+    minecraft-server.eula = true;
+
     # Enable sound with pipewire.
     pipewire = {
       enable = true;
