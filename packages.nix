@@ -39,7 +39,7 @@
     #  TEMP
     #
     ##
-    renpy
+    lmms
     gnupg
     pinentry-tty
     unityhub
@@ -51,10 +51,8 @@
     docui
     busybox
     pavucontrol
-    blueberry
     networkmanager
     cudaPackages.cudatoolkit
-    cbonsai
     xdg-user-dirs
     sageWithDoc
     freerdp
