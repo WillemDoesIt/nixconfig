@@ -39,32 +39,23 @@
     #  TEMP
     #
     ##
-    lmms
-    gnupg
-    pinentry-tty
-    unityhub
+    lmms # music DAW
+    gnupg # file and directory encryption
     ncdu # wintree for linux
     bat # better `cat`
-    nomacs
+    nomacs # image viewer
     gparted
-    docker
     docui
-    busybox
     pavucontrol
     networkmanager
     cudaPackages.cudatoolkit
     xdg-user-dirs
     sageWithDoc
-    freerdp
-    openssl.dev
+    #docker # needed for winboat
+    #freerdp # needed for winboat
     zlib.dev
     expat.dev
     ffmpeg.dev
-    pkg-config
-    ngrok
-    gcc
-    miniserve
-    kdePackages.kdenlive
 
     ##
     #  General
@@ -127,6 +118,7 @@
     p3x-onenote # kinda useless, just web shit
     libreoffice
     #alt: freeoffice
+    kdePackages.kdenlive
     onedrive
     teams-for-linux
     thunderbird # email client
@@ -138,6 +130,7 @@
     libsoup_3
     #dnw: bottles-unwrapped            # ways to run microsoft stuff on linux
     wineWowPackages.waylandFull
+    #unityhub
 
     ##
     #  Games
@@ -161,6 +154,11 @@
     expressvpn
     zip
     unzip
+    gcc
+    pkg-config
+    miniserve
+    openssl.dev
+    #busybox
     #alt: flameshot
     #dnw: roccat-tools  # for Roccat (brand) keyboard (25.03.04)
 
