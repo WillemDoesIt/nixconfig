@@ -71,7 +71,7 @@
     syncthing = {
       enable = true;
       openDefaultPorts = true;
-      dataDir = "/home/willemvz/";
+      dataDir = "/home/willemvz";
       #settings = {
       #  gui = {
       #    user = "myuser";
