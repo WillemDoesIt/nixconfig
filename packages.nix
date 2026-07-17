@@ -85,8 +85,13 @@
     audacity
     transmission_4-qt # torrent engine
     #alt: qbittorrent-nox
-    vlc
-    #alt: mpv
+    #vlc
+    (mpv.override {
+      scripts = [
+        mpvScripts.mpris
+        mpvScripts.modernz
+      ];
+    })
 
     #parsec-bin           # doesn't host !?
     #xrdp                 # remote desktop
