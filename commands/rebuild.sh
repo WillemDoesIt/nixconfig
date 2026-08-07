@@ -2,9 +2,9 @@
 set -euo pipefail
 
 origin=$(pwd)
-sudo chown "$USER" /etc/nixos/commands/assets/nixos-rebuild-time.txt /etc/nixos/commands/assets/nixos-switch.log
-time_file="/etc/nixos/commands/assets/nixos-rebuild-time.txt"
-log_file="/etc/nixos/commands/assets/nixos-switch.log"
+sudo chown "$USER" /etc/nixos/config/commands/assets/nixos-rebuild-time.txt /etc/nixos/config/commands/assets/nixos-switch.log
+time_file="/etc/nixos/config/commands/assets/nixos-rebuild-time.txt"
+log_file="/etc/nixos/config/commands/assets/nixos-switch.log"
 
 mode="default"
 do_gc=false
@@ -43,7 +43,7 @@ while [[ $# -gt 0 ]]; do
   shift
 done
 
-cd /etc/nixos
+cd /etc/nixos/config
 
 if [ "$do_undo" = true ]; then
   echo "Reverting all changes and resetting to previous commit..."
@@ -133,7 +133,7 @@ if ! wait $nixos_pid; then
       read -p "Include file tree of /etc/nixos? [y/N]: " include_tree
       if [[ "$include_tree" =~ ^[yY]$ ]]; then
         report+="My nixos config has the following structure:\n"
-        find /etc/nixos -maxdepth 1 -printf "%f  " ; echo -e "\n\n"
+        find /etc/nixos/config -maxdepth 1 -printf "%f  " ; echo -e "\n\n"
       fi
 
       add_files_recursive() {
@@ -155,11 +155,11 @@ if ! wait $nixos_pid; then
         done
       }
 
-      add_files_recursive "/etc/nixos"
+      add_files_recursive "/etc/nixos/config"
 
-      read -p "Include git diff of /etc/nixos? [y/N]: " include_diff
+      read -p "Include git diff of /etc/nixos/config? [y/N]: " include_diff
       if [[ "$include_diff" =~ ^[yY]$ ]]; then
-        diff_output=$(git -C /etc/nixos difftool --no-prompt --extcmd='bash -c "bat --diff --paging=never --color=always \"$LOCAL\" \"$REMOTE\" | tail -n +5"' 2>/dev/null)
+        diff_output=$(git -C /etc/nixos/config difftool --no-prompt --extcmd='bash -c "bat --diff --paging=never --color=always \"$LOCAL\" \"$REMOTE\" | tail -n +5"' 2>/dev/null)
         report+="Git diff:\n\`\`\`\n$diff_output\n\`\`\`\n\n"
       fi
 
@@ -193,19 +193,19 @@ printf "\e[0m"
 
 # --- git commit + push ---
 #
-git -C /etc/nixos add -A
+git -C /etc/nixos/config add -A
 
 if [[ -n "$(git -C /etc/nixos status --porcelain)" ]]; then
   gen=$(nixos-rebuild list-generations | awk '$NF=="True" {print $1; exit}')
   [[ -z "$gen" ]] && gen="nixos rebuild"
 
-  git -C /etc/nixos commit -m "$gen" --quiet || { echo -e "\e[31mCommit failed ✘\e[0m"; exit 1; }
+  git -C /etc/nixos/config commit -m "$gen" --quiet || { echo -e "\e[31mCommit failed ✘\e[0m"; exit 1; }
 
   if ! git -C /etc/nixos pull --rebase --quiet; then
     echo -e "\e[31mPull failed ✘\e[0m"
   fi
 
-  git -C /etc/nixos push --quiet || { echo -e "\e[31mPush failed ✘\e[0m"; exit 1; }
+  git -C /etc/nixos/config push --quiet || { echo -e "\e[31mPush failed ✘\e[0m"; exit 1; }
 
   print_done
   echo -e "\e[32mGit committed + pushed ✔\e[0m"

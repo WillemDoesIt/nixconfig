@@ -16,23 +16,23 @@
 
     # this makes `re` a command that runs the rebuild script
     (writeShellScriptBin "re" ''
-      bash /etc/nixos/commands/rebuild.sh "$@"
+      bash /etc/nixos/config/commands/rebuild.sh "$@"
     '')
     fzf
 
     # this makes `texpdf` a command that converts tex files to pdf
     (writeShellScriptBin "texpdf" ''
-      bash /etc/nixos/commands/texpdf.sh "$@"
+      bash /etc/nixos/config/commands/texpdf.sh "$@"
     '')
 
     # this makes `ccmd` a command that clipboards prev command
     (writeShellScriptBin "ccmd" ''
-      bash /etc/nixos/commands/ccmd.sh "$@"
+      bash /etc/nixos/config/commands/ccmd.sh "$@"
     '')
 
     # this makes `nps` a command that lets you search nixpkgs and install to the shell
     (writeShellScriptBin "nps" ''
-      bash /etc/nixos/commands/nps.sh "$@"
+      bash /etc/nixos/config/commands/nps.sh "$@"
     '')
 
     ##
@@ -45,7 +45,6 @@
     bat # better `cat`
     nomacs # image viewer
     gparted
-    docui
     pavucontrol
     networkmanager
     cudaPackages.cudatoolkit
@@ -63,7 +62,6 @@
     ##
     kitty
     fish # terminal and shell
-    librechat
     yazi # terminal file manager
     #alt: nnn, ranger, lf
     nemo # gui file manager
@@ -73,14 +71,12 @@
     obs-studio
     firefox
     librewolf
-    sidequest
     spotify
     audacious # gui music
     musikcube
     #alt: lollypop
     beeper
     element-desktop
-    ticktick
     alejandra
     audacity
     transmission_4-qt # torrent engine
@@ -94,7 +90,7 @@
     })
 
     #parsec-bin           # doesn't host !?
-    #xrdp                 # remote desktop
+    xrdp # remote desktop
     #lynx                 # terminal based web browser
 
     ##
@@ -104,10 +100,7 @@
     gimp
     krita
     obsidian
-    logseq
     blender
-    godot_4
-    vscode
     neovim
     vim
     ripgrep

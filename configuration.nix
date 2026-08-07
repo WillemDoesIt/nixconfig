@@ -7,9 +7,6 @@
   # enable flakes
   nix.settings.experimental-features = ["nix-command" "flakes"];
 
-  imports = [
-  ];
-
   # Bootloader.
   boot.loader = {
     systemd-boot.enable = true;
@@ -179,7 +176,9 @@
   # Allow unfree packages
   nixpkgs.config = {
     allowUnfree = true;
-    permittedInsecurePackages = ["python3.12-ecdsa-0.19.1"];
+    permittedInsecurePackages = [
+      "electron-39.8.10"
+    ];
   };
 
   # This value determines the NixOS release from which the default
